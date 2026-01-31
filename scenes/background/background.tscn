@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=4 format=3 uid="uid://cdnrr1ksm5xp5"]
+
+[ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/background/Pictures/bg.png" id="1_iheb5"]
+[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="2_pesyb"]
+[ext_resource type="PackedScene" uid="uid://b7bv5i177sklq" path="res://scenes/garlic.tscn" id="3_rsf5d"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_iheb5")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Player" parent="Objects" instance=ExtResource("2_pesyb")]
+
+[node name="Garlic" parent="Objects" instance=ExtResource("3_rsf5d")]
+position = Vector2(476, 7)
