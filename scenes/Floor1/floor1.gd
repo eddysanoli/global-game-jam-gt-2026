@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	$Others/Control/Minutes.text = str("0", mins)
 	$Others/Control/Seconds.text = str(sec)
 	
-	if Global.num_people <= 1:
+	if Global.num_people <= 1 or Global.countdown <= 0:
 		_on_main_menu_pressed("res://UI/FailMenu.tscn")
 
 func start_Garlic():
@@ -50,5 +50,4 @@ func _on_main_menu_pressed(tex = "res://UI/mainMenu.tscn") -> void:
 
 
 func _on_timer_timeout() -> void:
-	Global.num_people -= 1
 	Global.countdown -= 1

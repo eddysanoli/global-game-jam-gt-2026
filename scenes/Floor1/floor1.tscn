@@ -1,9 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=13 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://bde5ytmgc16ge" path="res://scenes/Floor1/bkg_f1.png" id="2_tjkhk"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
 [ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjkhk"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10rxd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca35p"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq5t8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgwap"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rsf5d"]
 a = Vector2(-474, -298)
@@ -12,6 +27,9 @@ b = Vector2(-474, 296)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ewwm8"]
 a = Vector2(-475, 296)
 b = Vector2(475, 296)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly76x"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Floor1" type="Node2D"]
 script = ExtResource("1_tjkhk")
@@ -46,6 +64,8 @@ offset_right = 69.0
 offset_bottom = 58.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjkhk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_10rxd")
 text = "Floor 1"
 
 [node name="People" type="Label" parent="Others/Control"]
@@ -62,6 +82,7 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_ca35p")
 text = "There are 20 people"
 
 [node name="Minutes" type="Label" parent="Others/Control"]
@@ -71,6 +92,8 @@ offset_top = 74.0
 offset_right = 53.0
 offset_bottom = 129.0
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq5t8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_10rxd")
 text = "20"
 
 [node name="Seconds" type="Label" parent="Others/Control"]
@@ -80,6 +103,8 @@ offset_top = 141.0
 offset_right = 53.0
 offset_bottom = 196.0
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgwap")
+theme_override_styles/focus = SubResource("StyleBoxFlat_10rxd")
 text = "59"
 
 [node name="Timer" type="Timer" parent="Others"]
@@ -120,32 +145,44 @@ z_index = 1
 [node name="Player" parent="Objects" instance=ExtResource("3_ca35p")]
 z_index = 1
 
-[node name="L1toB" type="Button" parent="Objects"]
+[node name="Control" type="Control" parent="Objects"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="L1toB" type="Button" parent="Objects/Control"]
+layout_mode = 0
 offset_left = 488.0
 offset_top = 216.0
 offset_right = 529.0
 offset_bottom = 279.0
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ly76x")
 action_mode = 0
 text = "B"
 script = ExtResource("4_tjkhk")
 
-[node name="L1toL2" type="Button" parent="Objects"]
+[node name="L1toL2" type="Button" parent="Objects/Control"]
+layout_mode = 0
 offset_left = 488.0
 offset_top = 56.0
 offset_right = 529.0
 offset_bottom = 119.0
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ly76x")
 action_mode = 0
 text = "2"
 script = ExtResource("4_tjkhk")
 
-[node name="MainMenu" type="Button" parent="Objects"]
+[node name="MainMenu" type="Button" parent="Objects/Control"]
+layout_mode = 0
 offset_left = -468.0
 offset_top = -350.0
 offset_right = -301.0
-offset_bottom = -309.0
+offset_bottom = -307.0
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_ly76x")
 text = "Main Menu"
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]
@@ -176,6 +213,6 @@ position = Vector2(-381, 225)
 position = Vector2(464, 19)
 
 [connection signal="timeout" from="Others/Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Objects/L1toB" to="." method="_on_l_1_to_b_pressed"]
-[connection signal="pressed" from="Objects/L1toL2" to="." method="_on_l_1_to_l_2_pressed"]
-[connection signal="pressed" from="Objects/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Objects/Control/L1toB" to="." method="_on_l_1_to_b_pressed"]
+[connection signal="pressed" from="Objects/Control/L1toL2" to="." method="_on_l_1_to_l_2_pressed"]
+[connection signal="pressed" from="Objects/Control/MainMenu" to="." method="_on_main_menu_pressed"]
