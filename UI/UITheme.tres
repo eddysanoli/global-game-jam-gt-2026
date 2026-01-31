@@ -1,4 +1,4 @@
-[gd_resource type="Theme" format=3 uid="uid://djroh1jot6ik5"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://djroh1jot6ik5"]
 
 [ext_resource type="FontFile" uid="uid://d0h4jlyt6cg0t" path="res://UI/fonts/Comic Sans MS.ttf" id="1_cnlh1"]
 [ext_resource type="FontFile" uid="uid://br7ikejs8oalw" path="res://UI/fonts/algerian-regular.ttf" id="2_cy8pq"]

@@ -102,5 +102,7 @@ position = Vector2(-381, 225)
 [node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
 position = Vector2(464, 19)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="pressed" from="Objects/L2toB" to="." method="_on_l_2_to_b_pressed"]
 [connection signal="pressed" from="Objects/L2toL1" to="." method="_on_l_2_to_l_1_pressed"]
