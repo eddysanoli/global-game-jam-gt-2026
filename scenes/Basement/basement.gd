@@ -3,7 +3,7 @@ extends Node2D
 var garlic_scene: PackedScene = preload("res://scenes/garlic/garlic.tscn")
 
 func _ready() -> void:
-	for i in range(3): start_Garlic()
+	start_Garlic()
 
 func start_Garlic():
 #Variables
