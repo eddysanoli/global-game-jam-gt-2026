@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7bv5i177sklq"]
+[gd_scene load_steps=4 format=3 uid="uid://b7bv5i177sklq"]
 
 [ext_resource type="Texture2D" uid="uid://o0dq36dg7akc" path="res://scenes/garlic/garlic.png" id="1_p5428"]
+[ext_resource type="Script" uid="uid://dfyfdrwowtv43" path="res://scenes/garlic/garlic.gd" id="1_xpimi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc6fy"]
 radius = 36.221542
 
 [node name="Garlic" type="StaticBody2D"]
+script = ExtResource("1_xpimi")
 
 [node name="Garlic" type="Sprite2D" parent="."]
 scale = Vector2(0.07222223, 0.07222223)

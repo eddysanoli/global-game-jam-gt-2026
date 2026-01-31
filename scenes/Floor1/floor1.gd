@@ -6,9 +6,13 @@ func _ready() -> void:
 	start_Garlic()
 
 func start_Garlic():
-#Variables
+	#Variables
 	var garlic = garlic_scene.instantiate() as StaticBody2D
 	var pos_marker = $MarcadoresAjo.get_children().pick_random() as Marker2D
+	if Global.garlic_l1.is_zero_approx():
+		Global.garlic_l1 = pos_marker.position
+	else:
+		pos_marker.position = Global.garlic_l1
 	
 	#Random garlics around the scene
 	garlic.position = pos_marker.position
