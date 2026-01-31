@@ -107,19 +107,19 @@ z_index = 1
 
 [node name="L2toB" type="Button" parent="Objects"]
 offset_left = 488.0
-offset_top = -215.0
+offset_top = 216.0
 offset_right = 529.0
-offset_bottom = -152.0
+offset_bottom = 279.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "B"
 script = ExtResource("3_mkb7x")
 
 [node name="L2toL1" type="Button" parent="Objects"]
-offset_left = 487.0
-offset_top = -288.0
-offset_right = 528.0
-offset_bottom = -225.0
+offset_left = 488.0
+offset_top = 136.0
+offset_right = 529.0
+offset_bottom = 199.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "1"

@@ -19,7 +19,7 @@ func start_Garlic():
 	$Objects.add_child(garlic)
 
 func _process(_delta: float) -> void:
-	$Others/Control/People.text = str("There are ", Global.num_people , " people")
+	$Others/Control/People.text = str("There are ", Global.num_people , " people alive")
 	if Global.num_people <= 1:
 		_on_main_menu_pressed("res://UI/FailMenu.tscn")
 

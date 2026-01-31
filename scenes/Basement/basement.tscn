@@ -107,19 +107,19 @@ z_index = 1
 
 [node name="BtoL1" type="Button" parent="Objects"]
 offset_left = 488.0
-offset_top = -215.0
+offset_top = 136.0
 offset_right = 529.0
-offset_bottom = -152.0
+offset_bottom = 199.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "1"
 script = ExtResource("4_7q75m")
 
 [node name="BtoL2" type="Button" parent="Objects"]
-offset_left = 487.0
-offset_top = -288.0
-offset_right = 528.0
-offset_bottom = -225.0
+offset_left = 488.0
+offset_top = 56.0
+offset_right = 529.0
+offset_bottom = 119.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "2"

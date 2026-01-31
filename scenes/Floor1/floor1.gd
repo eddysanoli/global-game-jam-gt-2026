@@ -1,12 +1,19 @@
 extends Node2D
 
 var garlic_scene: PackedScene = preload("res://scenes/garlic/garlic.tscn")
+var mins: int
+var sec: int
 
 func _ready() -> void:
 	start_Garlic()
 	
 func _process(_delta: float) -> void:
-	$Others/Control/People.text = str("There are ", Global.num_people , " people")
+	$Others/Control/People.text = str("There are ", Global.num_people , " people alive")
+	mins = snapped(Global.countdown / 60,0)
+	sec = Global.countdown - (mins*60)
+	$Others/Control/Minutes.text = str("0", mins)
+	$Others/Control/Seconds.text = str(sec)
+	
 	if Global.num_people <= 1:
 		_on_main_menu_pressed("res://UI/FailMenu.tscn")
 
@@ -43,4 +50,5 @@ func _on_main_menu_pressed(tex = "res://UI/mainMenu.tscn") -> void:
 
 
 func _on_timer_timeout() -> void:
-	Global.num_people -= 3
+	Global.num_people -= 1
+	Global.countdown -= 1

@@ -7,6 +7,7 @@ func _ready():
 
 func play(): 
 	get_tree().change_scene_to_file("res://scenes/Floor1/floor1.tscn")
+	Global.countdown = 300
 	
 	
 func quit(): 

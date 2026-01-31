@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
-[ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/Floor1/bg.png" id="2_10rxd"]
+[ext_resource type="Texture2D" uid="uid://bde5ytmgc16ge" path="res://scenes/Floor1/bkg_f1.png" id="2_tjkhk"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
 [ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
 
@@ -22,8 +22,9 @@ script = ExtResource("1_tjkhk")
 
 [node name="Bg" type="Sprite2D" parent="Others"]
 z_index = -1
-texture = ExtResource("2_10rxd")
-metadata/_edit_lock_ = true
+position = Vector2(-1.4923096, -1.0000153)
+scale = Vector2(0.5020862, 0.5020862)
+texture = ExtResource("2_tjkhk")
 
 [node name="Control" type="Control" parent="Others"]
 layout_mode = 3
@@ -62,6 +63,24 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "There are 20 people"
+
+[node name="Minutes" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 74.0
+offset_right = 53.0
+offset_bottom = 129.0
+theme_override_font_sizes/font_size = 40
+text = "20"
+
+[node name="Seconds" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 141.0
+offset_right = 53.0
+offset_bottom = 196.0
+theme_override_font_sizes/font_size = 40
+text = "59"
 
 [node name="Timer" type="Timer" parent="Others"]
 autostart = true
@@ -103,19 +122,19 @@ z_index = 1
 
 [node name="L1toB" type="Button" parent="Objects"]
 offset_left = 488.0
-offset_top = -215.0
+offset_top = 216.0
 offset_right = 529.0
-offset_bottom = -152.0
+offset_bottom = 279.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "B"
 script = ExtResource("4_tjkhk")
 
 [node name="L1toL2" type="Button" parent="Objects"]
-offset_left = 487.0
-offset_top = -288.0
-offset_right = 528.0
-offset_bottom = -225.0
+offset_left = 488.0
+offset_top = 56.0
+offset_right = 529.0
+offset_bottom = 119.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "2"
