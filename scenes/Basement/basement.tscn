@@ -66,6 +66,9 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 42
 text = "There are 20 people"
 
+[node name="Timer" type="Timer" parent="Others"]
+autostart = true
+
 [node name="Walls" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -157,6 +160,7 @@ position = Vector2(-381, 225)
 [node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
 position = Vector2(464, 19)
 
+[connection signal="timeout" from="Others/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Objects/BtoL1" to="." method="_on_bto_l_1_pressed"]
 [connection signal="pressed" from="Objects/BtoL2" to="." method="_on_bto_l_2_pressed"]
 [connection signal="pressed" from="Objects/MainMenu" to="." method="_on_main_menu_pressed"]

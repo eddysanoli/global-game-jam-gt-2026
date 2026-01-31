@@ -8,7 +8,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$Others/Control/People.text = str("There are ", Global.num_people , " people")
 	if Global.num_people <= 1:
-		_on_main_menu_pressed()
+		_on_main_menu_pressed("res://UI/FailMenu.tscn")
 
 func start_Garlic():
 	#Variables
@@ -33,9 +33,9 @@ func _on_l_1_to_b_pressed() -> void:
 	scene_tree.change_scene_to_file("res://scenes/Basement/basement.tscn")
 
 
-func _on_main_menu_pressed() -> void:
+func _on_main_menu_pressed(tex = "res://UI/mainMenu.tscn") -> void:
 	var scene_tree = get_tree()
-	scene_tree.change_scene_to_file("res://UI/mainMenu.tscn")
+	scene_tree.change_scene_to_file(tex)
 	Global.garlic_basement = Vector2(0,0)
 	Global.garlic_l1 = Vector2(0,0)
 	Global.garlic_l2 = Vector2(0,0)
