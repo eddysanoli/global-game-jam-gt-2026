@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7bv5i177sklq"]
 
-[ext_resource type="Texture2D" uid="uid://o0dq36dg7akc" path="res://scenes/background/Pictures/garlic.png" id="1_p5428"]
+[ext_resource type="Texture2D" uid="uid://o0dq36dg7akc" path="res://scenes/garlic/garlic.png" id="1_p5428"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc6fy"]
-radius = 131.02672
+radius = 36.221542
 
 [node name="Garlic" type="StaticBody2D"]
 
 [node name="Garlic" type="Sprite2D" parent="."]
-scale = Vector2(0.33888888, 0.33888888)
+scale = Vector2(0.07222223, 0.07222223)
 texture = ExtResource("1_p5428")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

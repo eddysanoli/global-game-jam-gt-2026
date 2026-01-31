@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var direction: Vector2 #Se crea un vector (0,0)
-var speed: int = 400
+var speed: int = 700
 
 func _physics_process(_delta: float) -> void:
 

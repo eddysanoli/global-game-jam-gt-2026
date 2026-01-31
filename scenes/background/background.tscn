@@ -1,15 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=6 format=3 uid="uid://cdnrr1ksm5xp5"]
 
-[ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/background/Pictures/bg.png" id="1_iheb5"]
+[ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/background/bg.png" id="1_iheb5"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="2_pesyb"]
-[ext_resource type="PackedScene" uid="uid://b7bv5i177sklq" path="res://scenes/garlic.tscn" id="3_rsf5d"]
+[ext_resource type="PackedScene" uid="uid://b7bv5i177sklq" path="res://scenes/garlic/garlic.tscn" id="3_rsf5d"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rsf5d"]
+a = Vector2(-474, -298)
+b = Vector2(-474, 296)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ewwm8"]
+a = Vector2(-475, 296)
+b = Vector2(475, 296)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Bg" type="Sprite2D" parent="."]
 texture = ExtResource("1_iheb5")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="Node2D" parent="."]
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+shape = SubResource("SegmentShape2D_rsf5d")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(950, 2)
+shape = SubResource("SegmentShape2D_rsf5d")
+
+[node name="DownWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/DownWall"]
+shape = SubResource("SegmentShape2D_ewwm8")
+metadata/_edit_lock_ = true
+
+[node name="UpWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/UpWall"]
+position = Vector2(-1, -594)
+shape = SubResource("SegmentShape2D_ewwm8")
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -17,3 +53,30 @@ texture = ExtResource("1_iheb5")
 
 [node name="Garlic" parent="Objects" instance=ExtResource("3_rsf5d")]
 position = Vector2(476, 7)
+
+[node name="MarcadoresAjo" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-437, -263)
+
+[node name="Marker2D6" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(171, 173)
+
+[node name="Marker2D7" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-136, 166)
+
+[node name="Marker2D8" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(377, -233)
+
+[node name="Marker2D2" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-196, -98)
+
+[node name="Marker2D3" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(155, -129)
+
+[node name="Marker2D4" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-396, 232)
+
+[node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(473, -48)
