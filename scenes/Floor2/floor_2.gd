@@ -18,6 +18,8 @@ func start_Garlic():
 	garlic.position = pos_marker.position
 	$Objects.add_child(garlic)
 
+func _process(_delta: float):
+	$Others/Control/People.text = str("There are ", Global.num_people , " people")
 
 func _on_l_2_to_b_pressed() -> void:
 	var scene_tree = get_tree()
@@ -27,3 +29,11 @@ func _on_l_2_to_b_pressed() -> void:
 func _on_l_2_to_l_1_pressed() -> void:
 	var scene_tree = get_tree()
 	scene_tree.change_scene_to_file("res://scenes/Floor1/floor1.tscn")
+
+
+func _on_main_menu_pressed() -> void:
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_file("res://UI/mainMenu.tscn")
+	Global.garlic_basement = Vector2(0,0)
+	Global.garlic_l1 = Vector2(0,0)
+	Global.garlic_l2 = Vector2(0,0)

@@ -4,6 +4,11 @@ var garlic_scene: PackedScene = preload("res://scenes/garlic/garlic.tscn")
 
 func _ready() -> void:
 	start_Garlic()
+	
+func _process(_delta: float) -> void:
+	$Others/Control/People.text = str("There are ", Global.num_people , " people")
+	if Global.num_people <= 1:
+		_on_main_menu_pressed()
 
 func start_Garlic():
 	#Variables
@@ -26,3 +31,16 @@ func _on_l_1_to_l_2_pressed() -> void:
 func _on_l_1_to_b_pressed() -> void:
 	var scene_tree = get_tree()
 	scene_tree.change_scene_to_file("res://scenes/Basement/basement.tscn")
+
+
+func _on_main_menu_pressed() -> void:
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_file("res://UI/mainMenu.tscn")
+	Global.garlic_basement = Vector2(0,0)
+	Global.garlic_l1 = Vector2(0,0)
+	Global.garlic_l2 = Vector2(0,0)
+
+
+
+func _on_timer_timeout() -> void:
+	Global.num_people -= 3
