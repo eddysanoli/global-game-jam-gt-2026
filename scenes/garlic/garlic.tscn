@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://dfyfdrwowtv43" path="res://scenes/garlic/garlic.gd" id="1_xpimi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc6fy"]
-radius = 36.221542
+radius = 43.011627
 
 [node name="Garlic" type="StaticBody2D"]
 script = ExtResource("1_xpimi")
 
 [node name="Garlic" type="Sprite2D" parent="."]
-scale = Vector2(0.07222223, 0.07222223)
+scale = Vector2(0.11388889, 0.11388889)
 texture = ExtResource("1_p5428")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
