@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=7 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/Floor1/bg.png" id="2_10rxd"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
-[ext_resource type="PackedScene" uid="uid://ce1mn4om3jn87" path="res://scenes/Floor1/door.tscn" id="4_tjkhk"]
-[ext_resource type="PackedScene" uid="uid://bgpx7s63swuio" path="res://scenes/Floor1/l_1_to_b.tscn" id="5_10rxd"]
+[ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rsf5d"]
 a = Vector2(-474, -298)
@@ -55,12 +54,25 @@ shape = SubResource("SegmentShape2D_ewwm8")
 [node name="Player" parent="Objects" instance=ExtResource("3_ca35p")]
 z_index = 1
 
-[node name="Door" parent="Objects" instance=ExtResource("4_tjkhk")]
-position = Vector2(0, -269)
+[node name="L1toB" type="Button" parent="Objects"]
+offset_left = 488.0
+offset_top = -215.0
+offset_right = 529.0
+offset_bottom = -152.0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "2"
+script = ExtResource("4_tjkhk")
 
-[node name="L1toB" parent="Objects" instance=ExtResource("5_10rxd")]
-position = Vector2(0, -274)
-scale = Vector2(1.5, 1.5)
+[node name="L1toL2" type="Button" parent="Objects"]
+offset_left = 487.0
+offset_top = -288.0
+offset_right = 528.0
+offset_bottom = -225.0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "B"
+script = ExtResource("4_tjkhk")
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -88,3 +100,6 @@ position = Vector2(-381, 225)
 
 [node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
 position = Vector2(464, 19)
+
+[connection signal="pressed" from="Objects/L1toB" to="." method="_on_l_1_to_b_pressed"]
+[connection signal="pressed" from="Objects/L1toL2" to="." method="_on_l_1_to_l_2_pressed"]
