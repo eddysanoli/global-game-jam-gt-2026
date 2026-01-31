@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=8 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/Floor1/bg.png" id="2_10rxd"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
-[ext_resource type="PackedScene" uid="uid://b7bv5i177sklq" path="res://scenes/garlic/garlic.tscn" id="4_uq5t8"]
+[ext_resource type="PackedScene" uid="uid://ce1mn4om3jn87" path="res://scenes/Floor1/door.tscn" id="4_tjkhk"]
+[ext_resource type="PackedScene" uid="uid://bgpx7s63swuio" path="res://scenes/Floor1/l_1_to_b.tscn" id="5_10rxd"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rsf5d"]
 a = Vector2(-474, -298)
@@ -52,10 +53,14 @@ shape = SubResource("SegmentShape2D_ewwm8")
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Player" parent="Objects" instance=ExtResource("3_ca35p")]
+z_index = 1
 
-[node name="Garlic" parent="Objects" instance=ExtResource("4_uq5t8")]
-visible = false
-position = Vector2(476, 7)
+[node name="Door" parent="Objects" instance=ExtResource("4_tjkhk")]
+position = Vector2(0, -269)
+
+[node name="L1toB" parent="Objects" instance=ExtResource("5_10rxd")]
+position = Vector2(0, -274)
+scale = Vector2(1.5, 1.5)
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

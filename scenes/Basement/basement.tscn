@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyqo0j8p136bo"]
+
+[ext_resource type="Texture2D" uid="uid://281gdjupmrde" path="res://scenes/Basement/bg.png" id="1_huuf7"]
+[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://icon.svg" id="2_x50av"]
+[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_fv2i8"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0ua12"]
+a = Vector2(-474, -298)
+b = Vector2(-474, 296)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_x50av"]
+a = Vector2(-475, 296)
+b = Vector2(475, 296)
+
+[node name="Basement" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+self_modulate = Color(0.6666667, 0.6627451, 0.5254902, 1)
+texture = ExtResource("1_huuf7")
+
+[node name="Walls" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+shape = SubResource("SegmentShape2D_0ua12")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(950, 2)
+shape = SubResource("SegmentShape2D_0ua12")
+
+[node name="DownWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/DownWall"]
+shape = SubResource("SegmentShape2D_x50av")
+metadata/_edit_lock_ = true
+
+[node name="UpWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/UpWall"]
+position = Vector2(-1, -594)
+shape = SubResource("SegmentShape2D_x50av")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -259)
+scale = Vector2(0.5703125, 0.5703125)
+texture = ExtResource("2_x50av")
+
+[node name="Player" parent="." instance=ExtResource("3_fv2i8")]
+position = Vector2(0, -225.00002)
