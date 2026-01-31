@@ -12,7 +12,10 @@ func _process(_delta: float) -> void:
 	mins = snapped(Global.countdown / 60,0)
 	sec = Global.countdown - (mins*60)
 	$Others/Control/Minutes.text = str("0", mins)
-	$Others/Control/Seconds.text = str(sec)
+	if sec < 10:
+		$Others/Control/Seconds.text = str("0", sec)
+	else:
+		$Others/Control/Seconds.text = str(sec)
 	
 	if Global.num_people <= 1 or Global.countdown <= 0:
 		_on_main_menu_pressed("res://UI/FailMenu.tscn")

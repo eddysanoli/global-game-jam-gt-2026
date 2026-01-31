@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyqo0j8p136bo"]
+[gd_scene load_steps=12 format=3 uid="uid://cyqo0j8p136bo"]
 
 [ext_resource type="Script" uid="uid://udvqjbn76aru" path="res://scenes/Basement/basement.gd" id="1_fv2i8"]
 [ext_resource type="Texture2D" uid="uid://281gdjupmrde" path="res://scenes/Basement/bg.png" id="1_huuf7"]
@@ -12,6 +12,12 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ss7x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6oti1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ii6jw"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0ua12"]
@@ -89,13 +95,43 @@ text = "20"
 [node name="Seconds" type="Label" parent="Others/Control"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 142.0
+offset_top = 151.0
 offset_right = 52.0
-offset_bottom = 197.0
+offset_bottom = 206.0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_4ss7x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_7q75m")
 text = "59"
+
+[node name="SecLabel" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 210.0
+offset_right = 50.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oti1")
+text = "Seconds"
+
+[node name="MinLabel" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 133.0
+offset_right = 50.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_6oti1")
+text = "Minutes"
+
+[node name="FloorLabel" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 380.0
+offset_right = 1067.0
+offset_bottom = 403.0
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ii6jw")
+text = "Floor"
 
 [node name="Timer" type="Timer" parent="Others"]
 autostart = true
