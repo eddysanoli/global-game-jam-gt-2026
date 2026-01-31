@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://f4eqlqliwk81"]
+[gd_scene load_steps=3 format=3 uid="uid://dpktrilcarvni"]
 
-[ext_resource type="Script" uid="uid://xolgml4b0k0l" path="res://UI/fail_menu.gd" id="1_cbj0f"]
+[ext_resource type="Script" path="res://UI/fail_menu.gd" id="1_cbj0f"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="2_pg14t"]
 
 [node name="Lost" type="Control"]
 layout_mode = 3
@@ -33,6 +34,8 @@ offset_right = 413.0
 offset_bottom = 136.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_pg14t")
+theme_override_colors/font_color = Color(0, 0.6, 0.6, 1)
 theme_override_font_sizes/font_size = 200
 text = "You Lost"
 
@@ -49,6 +52,7 @@ offset_right = 120.5
 offset_bottom = -127.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_pg14t")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 

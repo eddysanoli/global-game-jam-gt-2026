@@ -1,26 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpjphsps6q2df"]
+[gd_scene load_steps=9 format=3 uid="uid://cpjphsps6q2df"]
 
 [ext_resource type="Script" uid="uid://cknelxudxl62h" path="res://scenes/Floor2/floor_2.gd" id="1_e74p3"]
 [ext_resource type="Texture2D" uid="uid://cvnbhpv3scjh5" path="res://scenes/Floor2/bg.png" id="1_yx5g7"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="2_e74p3"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="3_eepb4"]
 [ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="3_mkb7x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e74p3"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkb7x"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eepb4"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbl21"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtv1b"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtx0d"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_eepb4"]
@@ -61,10 +47,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -78.0
-offset_right = 78.0
-offset_bottom = 58.0
+offset_left = -80.5
+offset_top = 2.0
+offset_right = 80.5
+offset_bottom = 60.0
 grow_horizontal = 2
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 42
 text = "Floor 2"
 
@@ -75,12 +63,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -201.5
-offset_top = -62.0
-offset_right = 201.5
-offset_bottom = -4.0
+offset_left = -223.5
+offset_top = -60.0
+offset_right = 223.5
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 42
 text = "There are 20 people"
 
@@ -90,9 +79,8 @@ offset_left = 6.0
 offset_top = 75.0
 offset_right = 52.0
 offset_bottom = 130.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_e74p3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mkb7x")
 text = "20"
 
 [node name="Seconds" type="Label" parent="Others/Control"]
@@ -101,8 +89,8 @@ offset_left = 6.0
 offset_top = 152.0
 offset_right = 52.0
 offset_bottom = 207.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_eepb4")
 theme_override_styles/focus = SubResource("StyleBoxFlat_mkb7x")
 text = "59"
 
@@ -112,8 +100,8 @@ offset_left = 9.0
 offset_top = 209.0
 offset_right = 49.0
 offset_bottom = 223.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_bbl21")
 text = "Seconds"
 
 [node name="MinLabel" type="Label" parent="Others/Control"]
@@ -122,18 +110,18 @@ offset_left = 10.0
 offset_top = 133.0
 offset_right = 50.0
 offset_bottom = 147.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxFlat_rtv1b")
 text = "Minutes"
 
 [node name="FloorLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 1027.0
+offset_left = 1020.0
 offset_top = 380.0
-offset_right = 1067.0
+offset_right = 1068.0
 offset_bottom = 403.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_jtx0d")
 text = "Floor"
 
 [node name="Timer" type="Timer" parent="Others"]
@@ -180,6 +168,7 @@ offset_left = 488.0
 offset_top = 216.0
 offset_right = 529.0
 offset_bottom = 279.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "B"
@@ -190,6 +179,7 @@ offset_left = 488.0
 offset_top = 136.0
 offset_right = 529.0
 offset_bottom = 199.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "1"
@@ -200,6 +190,7 @@ offset_left = -468.0
 offset_top = -350.0
 offset_right = -301.0
 offset_bottom = -309.0
+theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
