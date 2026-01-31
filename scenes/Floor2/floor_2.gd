@@ -14,11 +14,12 @@ func start_Garlic():
 	garlic.position = pos_marker.position
 	$Objects.add_child(garlic)
 
-func _on_l_1_to_l_2_pressed() -> void:
-	var scene_tree = get_tree()
-	scene_tree.change_scene_to_file("res://scenes/Floor2/floor2.tscn")
 
-
-func _on_l_1_to_b_pressed() -> void:
+func _on_l_2_to_b_pressed() -> void:
 	var scene_tree = get_tree()
 	scene_tree.change_scene_to_file("res://scenes/Basement/basement.tscn")
+
+
+func _on_l_2_to_l_1_pressed() -> void:
+	var scene_tree = get_tree()
+	scene_tree.change_scene_to_file("res://scenes/Floor1/floor1.tscn")

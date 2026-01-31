@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyqo0j8p136bo"]
+[gd_scene load_steps=7 format=3 uid="uid://cyqo0j8p136bo"]
 
+[ext_resource type="Script" uid="uid://udvqjbn76aru" path="res://scenes/Basement/basement.gd" id="1_fv2i8"]
 [ext_resource type="Texture2D" uid="uid://281gdjupmrde" path="res://scenes/Basement/bg.png" id="1_huuf7"]
-[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://icon.svg" id="2_x50av"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_fv2i8"]
+[ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_7q75m"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_0ua12"]
 a = Vector2(-474, -298)
@@ -13,6 +14,7 @@ a = Vector2(-475, 296)
 b = Vector2(475, 296)
 
 [node name="Basement" type="Node2D"]
+script = ExtResource("1_fv2i8")
 
 [node name="Bg" type="Sprite2D" parent="."]
 self_modulate = Color(0.6666667, 0.6627451, 0.5254902, 1)
@@ -48,9 +50,57 @@ metadata/_edit_lock_ = true
 position = Vector2(-1, -594)
 shape = SubResource("SegmentShape2D_x50av")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -259)
-scale = Vector2(0.5703125, 0.5703125)
-texture = ExtResource("2_x50av")
+[node name="Objects" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("3_fv2i8")]
+[node name="Player" parent="Objects" instance=ExtResource("3_fv2i8")]
+z_index = 1
+
+[node name="BtoL1" type="Button" parent="Objects"]
+offset_left = 488.0
+offset_top = -215.0
+offset_right = 529.0
+offset_bottom = -152.0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "1"
+script = ExtResource("4_7q75m")
+
+[node name="BtoL2" type="Button" parent="Objects"]
+offset_left = 487.0
+offset_top = -288.0
+offset_right = 528.0
+offset_bottom = -225.0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "2"
+script = ExtResource("4_7q75m")
+
+[node name="MarcadoresAjo" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-452, -272)
+
+[node name="Marker2D6" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(212, 140)
+
+[node name="Marker2D7" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-89, 162)
+
+[node name="Marker2D8" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(377, -208)
+
+[node name="Marker2D2" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-196, -98)
+
+[node name="Marker2D3" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(151, -110)
+
+[node name="Marker2D4" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-381, 225)
+
+[node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(464, 19)
+
+[connection signal="pressed" from="Objects/BtoL1" to="." method="_on_bto_l_1_pressed"]
+[connection signal="pressed" from="Objects/BtoL2" to="." method="_on_bto_l_2_pressed"]

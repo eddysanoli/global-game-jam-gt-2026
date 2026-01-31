@@ -1,45 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=7 format=3 uid="uid://cpjphsps6q2df"]
 
-[ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
-[ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/Floor1/bg.png" id="2_10rxd"]
-[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
-[ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
+[ext_resource type="Script" uid="uid://cknelxudxl62h" path="res://scenes/Floor2/floor_2.gd" id="1_e74p3"]
+[ext_resource type="Texture2D" uid="uid://cvnbhpv3scjh5" path="res://scenes/Floor2/bg.png" id="1_yx5g7"]
+[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="2_e74p3"]
+[ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="3_mkb7x"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_rsf5d"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eepb4"]
 a = Vector2(-474, -298)
 b = Vector2(-474, 296)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ewwm8"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bbl21"]
 a = Vector2(-475, 296)
 b = Vector2(475, 296)
 
-[node name="Floor1" type="Node2D"]
-script = ExtResource("1_tjkhk")
+[node name="Floor2" type="Node2D"]
+script = ExtResource("1_e74p3")
 
 [node name="Bg" type="Sprite2D" parent="."]
-texture = ExtResource("2_10rxd")
-metadata/_edit_lock_ = true
+modulate = Color(0.3764706, 0.5686275, 0.54509807, 1)
+texture = ExtResource("1_yx5g7")
 
 [node name="Walls" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="LeftWall" type="StaticBody2D" parent="Walls"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
-shape = SubResource("SegmentShape2D_rsf5d")
+shape = SubResource("SegmentShape2D_eepb4")
 
 [node name="RightWall" type="StaticBody2D" parent="Walls"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
 position = Vector2(950, 2)
-shape = SubResource("SegmentShape2D_rsf5d")
+shape = SubResource("SegmentShape2D_eepb4")
 
 [node name="DownWall" type="StaticBody2D" parent="Walls"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/DownWall"]
-shape = SubResource("SegmentShape2D_ewwm8")
+shape = SubResource("SegmentShape2D_bbl21")
 metadata/_edit_lock_ = true
 
 [node name="UpWall" type="StaticBody2D" parent="Walls"]
@@ -47,14 +48,14 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/UpWall"]
 position = Vector2(-1, -594)
-shape = SubResource("SegmentShape2D_ewwm8")
+shape = SubResource("SegmentShape2D_bbl21")
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Player" parent="Objects" instance=ExtResource("3_ca35p")]
+[node name="Player" parent="Objects" instance=ExtResource("2_e74p3")]
 z_index = 1
 
-[node name="L1toB" type="Button" parent="Objects"]
+[node name="L2toB" type="Button" parent="Objects"]
 offset_left = 488.0
 offset_top = -215.0
 offset_right = 529.0
@@ -62,17 +63,17 @@ offset_bottom = -152.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "B"
-script = ExtResource("4_tjkhk")
+script = ExtResource("3_mkb7x")
 
-[node name="L1toL2" type="Button" parent="Objects"]
+[node name="L2toL1" type="Button" parent="Objects"]
 offset_left = 487.0
 offset_top = -288.0
 offset_right = 528.0
 offset_bottom = -225.0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
-text = "2"
-script = ExtResource("4_tjkhk")
+text = "1"
+script = ExtResource("3_mkb7x")
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -101,5 +102,5 @@ position = Vector2(-381, 225)
 [node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
 position = Vector2(464, 19)
 
-[connection signal="pressed" from="Objects/L1toB" to="." method="_on_l_1_to_b_pressed"]
-[connection signal="pressed" from="Objects/L1toL2" to="." method="_on_l_1_to_l_2_pressed"]
+[connection signal="pressed" from="Objects/L2toB" to="." method="_on_l_2_to_b_pressed"]
+[connection signal="pressed" from="Objects/L2toL1" to="." method="_on_l_2_to_l_1_pressed"]
