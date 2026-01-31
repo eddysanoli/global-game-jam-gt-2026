@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://global.gd"
+BgMusic="*res://audio/music/BGMusic.tscn"
 
 [display]
 
