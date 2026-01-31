@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://du2ojqnsxwyag"]
 
-[ext_resource type="PackedScene" uid="uid://bmb71f2cti8n" path="res://UI/jugador_pipe.tscn" id="1_afpva"]
+[ext_resource type="Script" uid="uid://b8najeefsccwb" path="res://UI/test_scene.gd" id="1_2o222"]
+[ext_resource type="PackedScene" uid="uid://2l7t2gjjmk2x" path="res://UI/Tests/Monigote.tscn" id="2_kehb0"]
+[ext_resource type="PackedScene" uid="uid://bwrm4swv0p5pj" path="res://UI/KillView.tscn" id="3_0wpys"]
+[ext_resource type="PackedScene" uid="uid://c7jxp0ig31ge" path="res://UI/PauseMenu.tscn" id="4_0vfwn"]
 
 [node name="TestScene" type="Node2D" unique_id=146570446]
+script = ExtResource("1_2o222")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=604807699]
 z_index = -4096
@@ -12,5 +16,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Jugador pipe" parent="." unique_id=679273842 instance=ExtResource("1_afpva")]
-position = Vector2(578, 323)
+[node name="Monigote" parent="." unique_id=1613542649 instance=ExtResource("2_kehb0")]
+
+[node name="KillView" parent="." unique_id=1105548395 instance=ExtResource("3_0wpys")]
+visible = false
+
+[node name="PauseMenu" parent="." unique_id=127774544 instance=ExtResource("4_0vfwn")]
+visible = false
+
+[connection signal="input_event" from="Monigote" to="." method="_on_monigote_input_event"]
+[connection signal="monigoteClicked" from="Monigote" to="." method="_on_monigote_monigote_clicked"]
