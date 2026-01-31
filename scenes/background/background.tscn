@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=7 format=3 uid="uid://cdnrr1ksm5xp5"]
 
+[ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/background/background.gd" id="1_ewwm8"]
 [ext_resource type="Texture2D" uid="uid://c1eeepcfp84ou" path="res://scenes/background/bg.png" id="1_iheb5"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="2_pesyb"]
 [ext_resource type="PackedScene" uid="uid://b7bv5i177sklq" path="res://scenes/garlic/garlic.tscn" id="3_rsf5d"]
@@ -13,6 +14,7 @@ a = Vector2(-475, 296)
 b = Vector2(475, 296)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_ewwm8")
 
 [node name="Bg" type="Sprite2D" parent="."]
 texture = ExtResource("1_iheb5")
@@ -52,6 +54,7 @@ shape = SubResource("SegmentShape2D_ewwm8")
 [node name="Player" parent="Objects" instance=ExtResource("2_pesyb")]
 
 [node name="Garlic" parent="Objects" instance=ExtResource("3_rsf5d")]
+visible = false
 position = Vector2(476, 7)
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]
