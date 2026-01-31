@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cftxnkboa6kjn"]
+
+[ext_resource type="Texture2D" uid="uid://dh2hyaa6va6wi" path="res://UI/Images/mansion_place_holder.webp" id="1_88dob"]
+[ext_resource type="Script" uid="uid://b02wc7hwxhagc" path="res://UI/main_menu.gd" id="1_ne5gk"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="3_em8oq"]
+
+[node name="Control" type="Control" unique_id=1177319974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ne5gk")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1406704538]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -97.0
+offset_right = 113.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=154935238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -53.0
+offset_right = 116.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_88dob")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1861256009]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = 80.0
+offset_right = 229.0
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="startBtn" type="Button" parent="TextureRect/VBoxContainer" unique_id=1330320715]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_em8oq")
+text = "START
+"
+
+[node name="exitBtn" type="Button" parent="TextureRect/VBoxContainer" unique_id=385706037]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_em8oq")
+text = "EXIT
+"
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1936143622]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -187.0
+offset_right = 248.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_em8oq")
+theme_override_font_sizes/font_size = 50
+text = "Juego de Vampiros 
+			>:D"
+horizontal_alignment = 1
