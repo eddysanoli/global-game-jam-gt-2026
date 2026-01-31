@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://du2ojqnsxwyag"]
+
+[ext_resource type="PackedScene" uid="uid://bmb71f2cti8n" path="res://UI/jugador_pipe.tscn" id="1_afpva"]
+
+[node name="TestScene" type="Node2D" unique_id=146570446]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=604807699]
+z_index = -4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Jugador pipe" parent="." unique_id=679273842 instance=ExtResource("1_afpva")]
+position = Vector2(578, 323)
