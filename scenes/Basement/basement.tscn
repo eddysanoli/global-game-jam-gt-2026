@@ -17,7 +17,6 @@ b = Vector2(475, 296)
 script = ExtResource("1_fv2i8")
 
 [node name="Bg" type="Sprite2D" parent="."]
-self_modulate = Color(0.6666667, 0.6627451, 0.5254902, 1)
 texture = ExtResource("1_huuf7")
 
 [node name="Walls" type="Node2D" parent="."]
