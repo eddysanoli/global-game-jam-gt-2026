@@ -1,0 +1,2 @@
+class_name movement_component
+extends Node

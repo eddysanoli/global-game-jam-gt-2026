@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bht6cbs5oqnic"]
+
+[node name="Obstaculo" type="Node2D" unique_id=713282776]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1199870304]
+radius = 80.0
