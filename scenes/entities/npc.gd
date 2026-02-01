@@ -46,7 +46,7 @@ var justMoved := false
 
 # ───── Vampire / Bleeding──────────────────────
 @export var is_vampire := false
-@export var bite_chance := 0.5 
+@export var bite_chance := 0.9 
 @export var bite_range := 120.0
 @export var bite_distance := 80.0
 @export var bite_cooldown_time := 5.0
@@ -255,7 +255,6 @@ func try_start_bite() -> bool:
 			continue
 		if global_position.distance_to(npc.global_position) <= bite_range:
 			candidates.append(npc)
-	print(candidates)
 	if candidates.is_empty():
 		return false
 	bite_target = candidates.pick_random()
@@ -341,11 +340,19 @@ func interact_with_stairs():
 # ─────────────────────────────────────────────
 # Fading after death
 func fading():
-	pass
-	queue_free()
 	$Scream.stream = grito.pick_random()
 	$Scream.play()
 	Global.num_people -= 1
+	z_index = 0
+	$%WPerson.texture = preload("res://graphics/npc_death_1.png")
+	$%WMask.texture = null
+	await get_tree().create_timer(10).timeout
+	var tween = create_tween()
+	tween.set_parallel(false)
+	tween.tween_property(self, "modulate:a", 0.0, 5)
+	await tween.finished
+	queue_free()
+	
 
 # ─────────────────────────────────────────────
 func check_stuck(delta):
@@ -369,7 +376,6 @@ func check_stuck(delta):
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
-		print('click')
 		monigoteClicked.emit(self)
 
 

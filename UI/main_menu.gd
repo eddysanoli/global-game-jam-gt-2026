@@ -32,7 +32,7 @@ func _on_credits_btn_button_down() -> void:
 
 
 func _on_start_btn_button_down() -> void:
-	if not Global.menu:
+	if Global.menu:
 		get_tree().change_scene_to_file("res://scenes/Floor1/floor1.tscn")
 	else:
 		get_tree().change_scene_to_file("res://UI/IntroScreenpt1.tscn")

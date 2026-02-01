@@ -43,7 +43,7 @@ var vampireId;
 var vampireNumber;
 var rng = RandomNumberGenerator.new()
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
-@export var monigoteCount: int = 2;
+@export var monigoteCount: int = 40;
 @export var spawnLimitsY = 720
 @export var spawnLimitsX = 1080
 
@@ -67,12 +67,10 @@ func instantiateNpcs() -> void:
 			"walking_person":walking[pep],
 			"walking_mask":mask_npc[mek]
 			}
-		print(Global.person, "\n")
 		print('vamp number', vampireNumber)
 		if i == vampireNumber:
 			vampireId = monigote
 			monigote.is_vampire = true
-		print(Global.person)
 		monigote.position = Vector2(randf_range(-540+60, 540-60), randf_range(-360+60,360-60))
 		monigote.monigoteClicked.connect(_on_npc_clicked)
 		monigote.texture_person(walking[pep],mask_npc[mek])

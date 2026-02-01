@@ -317,7 +317,7 @@ visible = false
 z_index = 5
 
 [node name="Scream" type="AudioStreamPlayer" parent="."]
-volume_db = 3.0
+volume_db = 1.0
 
 [connection signal="timeout" from="Others/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Objects/Control/L1toB" to="." method="_on_l_1_to_b_pressed"]
