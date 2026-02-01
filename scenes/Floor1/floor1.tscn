@@ -71,10 +71,6 @@ b = Vector2(475, 296)
 
 [node name="Floor1" type="Node2D"]
 script = ExtResource("1_tjkhk")
-monigoteScn = null
-monigoteCount = null
-spawnLimitsY = null
-spawnLimitsX = null
 
 [node name="Others" type="Node" parent="."]
 
