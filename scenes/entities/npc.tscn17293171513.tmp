@@ -12,14 +12,16 @@ radius = 200.0
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_kdwfn")
+speed_min = null
+speed_max = null
+memory_size = null
+repeated_actions = null
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=6197283]
 shape = SubResource("CircleShape2D_v7lw1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=822541858]
-path_desired_distance = 25.0
-target_desired_distance = 40.0
-path_max_distance = 40.0
+target_desired_distance = 15.0
 avoidance_enabled = true
 radius = 40.0
 debug_enabled = true

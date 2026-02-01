@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed_min: float = 40
-@export var speed_max: float = 80
+@export var speed_min: float = 20
+@export var speed_max: float = 30
 @export var memory_size: int = 5
 @export var repeated_actions: int = 3
 
@@ -18,6 +18,7 @@ var nearStairs = false
 var action = ["walk", "stand", "climbStairs"]
 var climbingStairs = false
 var standing = false
+var justMoved = false
 
 func _ready() -> void:
 	set_physics_process(false)
@@ -33,28 +34,18 @@ func setup():
 	
 
 func _physics_process(_delta):
-	manual_navigation()
 	if standing == true:
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(5).timeout
 		standing = false
-	navigate_safe()
-	
-func manual_navigation():
-	if Input.is_action_just_pressed("set_target"):
-		nav2d.target_position = get_global_mouse_position()
-		print(get_global_mouse_position())
-	
-func navigate():
-	if nav2d.is_navigation_finished():
+		justMoved = false
+	if justMoved == true:
 		await get_tree().create_timer(3).timeout
-		behaviour()
-	var next_path_position: Vector2 = nav2d.get_next_path_position()
-	velocity = (global_position.direction_to(next_path_position)* speed)
-#	Rotar sprite aqui
-	move_and_slide()
+		justMoved = false
+	navigate_safe()
 	
 func navigate_safe():
 	if nav2d.is_navigation_finished():
+		justMoved = true
 		if climbingStairs == true:
 			climbingStairs = false
 			move_floor()
@@ -69,8 +60,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	
 func pickRandomPoint(center: Vector2, inner: float, outer: float):
 	var angle: float = randf_range(0.0, TAU)
-	var vec: Vector2 = Vector2.RIGHT
 	var dist: float = randf_range(inner, outer)
+	var vec: Vector2 = Vector2.RIGHT * 2
 	var new_target = ((vec*dist).rotated(angle) + center)
 	if pastWaypoints.size() != 0:
 		if pastWaypoints.size() == memory_size:
@@ -85,6 +76,7 @@ func pickRandomPoint(center: Vector2, inner: float, outer: float):
 				angle = randf_range(0, PI)
 				new_target = ((vec*dist).rotated(angle) + center)
 				cosene = last_Waypoint.dot(new_target)/(last_Waypoint.length() * new_target.length())
+				similarityCounter = 0
 	pastWaypoints.append(new_target)
 	nav2d.target_position = new_target
 	
