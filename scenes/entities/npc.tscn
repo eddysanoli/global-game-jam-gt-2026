@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbc27r5p16d2g"]
 
 [ext_resource type="Script" uid="uid://bd4aqgtmjfr0t" path="res://scenes/entities/npc.gd" id="1_kdwfn"]
-[ext_resource type="Texture2D" uid="uid://c3xjm3ayawjxp" path="res://graphics/top_down_npc_1.png" id="2_4kvco"]
+[ext_resource type="Texture2D" uid="uid://bnexf8yxr1jdq" path="res://graphics/npc_mask_5.png" id="3_6jwl0"]
 [ext_resource type="AudioStream" uid="uid://bolt4cukdv57u" path="res://audio/vfx/Vampiro.wav" id="3_n61dp"]
 [ext_resource type="AudioStream" uid="uid://b74y4h5n7v8la" path="res://audio/vfx/Grito 2 (niño).wav" id="4_cdmjo"]
 
@@ -19,10 +19,16 @@ script = ExtResource("1_kdwfn")
 [node name="SpriteHolder" type="Node2D" parent="."]
 z_index = -1
 
-[node name="Sprite2D" type="Sprite2D" parent="SpriteHolder"]
+[node name="WPerson" type="Sprite2D" parent="SpriteHolder"]
+unique_name_in_owner = true
 z_index = 1
 scale = Vector2(0.06517726, 0.06517728)
-texture = ExtResource("2_4kvco")
+
+[node name="WMask" type="Sprite2D" parent="SpriteHolder"]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("3_6jwl0")
 
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
 z_index = 1

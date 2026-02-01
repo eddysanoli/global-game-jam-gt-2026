@@ -9,13 +9,14 @@ var grito = [
 		preload("res://audio/vfx/Grito 8 (Hombre chichon).wav")
 	]
 
+
 # ─────────────────────────────────────────────
 # Object Properties
 @export var speed_min: float = 50
 @export var speed_max: float = 80
 
 @onready var sprite_holder: Node2D = $SpriteHolder
-@onready var sprite_2d: Sprite2D = $SpriteHolder/Sprite2D
+@onready var sprite_2d: Sprite2D = $SpriteHolder/WPerson
 
 # Repetition Protection
 @export var memory_size: int = 5
@@ -139,8 +140,6 @@ func _physics_process(delta):
 			behaviour()
 	navigate_safe()
 	check_stuck(delta)
-
-
 
 # ─────────────────────────────────────────────
 func navigate_safe():
@@ -372,3 +371,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		print('click')
 		monigoteClicked.emit(self)
+
+
+##---------------------------------------------------
+func texture_person(id_person, id_mask):
+	%WPerson.texture = id_person
+	%WMask.texture = id_mask

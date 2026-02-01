@@ -15,6 +15,7 @@ var mask = [
 	preload("res://graphics/mask_4.png"),
 	preload("res://graphics/mask_5.png")
 	]
+	
 var grito = [
 	preload("res://audio/vfx/Grito 3 (Dama).wav"),
 	preload("res://audio/vfx/Grito 6 (Suena a Toad).wav"),
@@ -22,14 +23,27 @@ var grito = [
 	preload("res://audio/vfx/Grito 8 (Hombre chichon).wav")
 	]
 
+var mask_npc = [
+	preload("res://graphics/npc_mask_1.png"),
+	preload("res://graphics/npc_mask_2.png"),
+	preload("res://graphics/npc_mask_3.png"),
+	preload("res://graphics/npc_mask_4.png"),
+	preload("res://graphics/npc_mask_5.png")
+	]
+
 var faces = [
 	preload("res://graphics/portrait_1.png")
 	]
+	
+var walking = [
+	preload("res://graphics/npc_1.png")
+	]
+
 var vampireId;
 var vampireNumber;
 var rng = RandomNumberGenerator.new()
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
-@export var monigoteCount: int = 60;
+@export var monigoteCount: int = 50;
 @export var spawnLimitsY = 720
 @export var spawnLimitsX = 1080
 
@@ -46,17 +60,23 @@ func _ready() -> void:
 func instantiateNpcs() -> void: 
 	for i in range(monigoteCount):
 		var monigote = npcScn.instantiate() as NPC
-		Global.person[monigote.get_instance_id()] = {"mask_image":mask.pick_random(), 
-			"person_image":faces.pick_random()}
+		var pep = randi() % faces.size()
+		var mek = randi() % mask.size()
+		Global.person[monigote.get_instance_id()] = {"mask_image":mask[mek], 
+			"person_image":faces[pep],
+			"walking_person":walking[pep],
+			"walking_mask":mask_npc[mek]
+			}
 		print(Global.person, "\n")
 		print('vamp number', vampireNumber)
 		if i == vampireNumber:
 			vampireId = monigote
 			monigote.is_vampire = true
+		print(Global.person)
 		monigote.position = Vector2(randf_range(-540+60, 540-60), randf_range(-360+60,360-60))
 		monigote.monigoteClicked.connect(_on_npc_clicked)
+		monigote.texture_person(walking[pep],mask_npc[mek])
 		add_child(monigote)
-
 
 
 #Game finishes if the time is up or the amount of people is <= 1
