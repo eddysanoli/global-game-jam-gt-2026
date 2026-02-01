@@ -5,7 +5,7 @@ extends Node2D
 var paused = false
 
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
-@export var monigoteCount: int = 5;
+@export var monigoteCount: int = 3;
 @export var spawnLimitsY = 1000
 @export var spawnLimitsX = 1000
 var vampireId;
@@ -29,7 +29,7 @@ func instantiateMonigotes() -> void:
 		print('vamp number', vampireNumber)
 		if i == vampireNumber:
 			vampireId = monigote
-		monigote.position = Vector2(randf_range(0, spawnLimitsX), randf_range(0, spawnLimitsY))
+		monigote.position = Vector2(randf_range(0, spawnLimitsX), randf_range(170, 200))
 		monigote.monigoteClicked.connect(_on_monigote_monigote_clicked)
 		add_child(monigote)
 	
