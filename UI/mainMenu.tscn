@@ -62,6 +62,11 @@ theme = ExtResource("3_em8oq")
 text = "START
 "
 
+[node name="creditsBtn" type="Button" parent="TextureRect/VBoxContainer" unique_id=1837671125]
+layout_mode = 2
+theme = ExtResource("3_em8oq")
+text = "CREDITS"
+
 [node name="exitBtn" type="Button" parent="TextureRect/VBoxContainer" unique_id=385706037]
 unique_name_in_owner = true
 layout_mode = 2
