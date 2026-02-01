@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://djroh1jot6ik5"]
 
-[ext_resource type="FontFile" uid="uid://d0h4jlyt6cg0t" path="res://UI/fonts/Comic Sans MS.ttf" id="1_cnlh1"]
-[ext_resource type="FontFile" uid="uid://br7ikejs8oalw" path="res://UI/fonts/algerian-regular.ttf" id="2_cy8pq"]
+[ext_resource type="FontFile" uid="uid://75vfmvqkcn6w" path="res://fonts/Caudex-Bold.ttf" id="1_cnlh1"]
+[ext_resource type="FontFile" uid="uid://cfpyer6mntnr5" path="res://fonts/Caudex-Regular.ttf" id="2_cy8pq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnlh1"]
 bg_color = Color(0.1254902, 0.078431375, 0.2, 1)

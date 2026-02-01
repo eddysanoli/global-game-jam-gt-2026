@@ -98,32 +98,32 @@ text = "59"
 
 [node name="SecLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 3.0
 offset_top = 210.0
-offset_right = 50.0
-offset_bottom = 224.0
+offset_right = 54.0
+offset_bottom = 229.0
 theme = ExtResource("3_7q75m")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 14
 text = "Seconds"
 
 [node name="MinLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 3.0
 offset_top = 133.0
-offset_right = 50.0
-offset_bottom = 147.0
+offset_right = 55.0
+offset_bottom = 152.0
 theme = ExtResource("3_7q75m")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 14
 text = "Minutes"
 
 [node name="FloorLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 1023.0
-offset_top = 380.0
-offset_right = 1071.0
-offset_bottom = 403.0
+offset_left = 1020.0
+offset_top = 379.0
+offset_right = 1069.0
+offset_bottom = 407.0
 theme = ExtResource("3_7q75m")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 21
 text = "Floor"
 
 [node name="Timer" type="Timer" parent="Others"]
