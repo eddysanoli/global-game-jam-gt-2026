@@ -1,29 +1,31 @@
 [gd_scene format=3 uid="uid://du2ojqnsxwyag"]
 
 [ext_resource type="Script" uid="uid://b8najeefsccwb" path="res://UI/test_scene.gd" id="1_2o222"]
-[ext_resource type="PackedScene" uid="uid://2l7t2gjjmk2x" path="res://UI/Tests/Monigote.tscn" id="2_kehb0"]
 [ext_resource type="PackedScene" uid="uid://bwrm4swv0p5pj" path="res://UI/KillView.tscn" id="3_0wpys"]
 [ext_resource type="PackedScene" uid="uid://c7jxp0ig31ge" path="res://UI/PauseMenu.tscn" id="4_0vfwn"]
 
-[node name="TestScene" type="Node2D" unique_id=146570446]
+[node name="TestScene" type="Node2D" unique_id=45312389]
 script = ExtResource("1_2o222")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=604807699]
-z_index = -4096
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Monigote" parent="." unique_id=1613542649 instance=ExtResource("2_kehb0")]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1299415471]
+z_as_relative = false
+clip_contents = true
+custom_minimum_size = Vector2(1080, 720)
+offset_right = 1080.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.38039216)
 
 [node name="KillView" parent="." unique_id=1105548395 instance=ExtResource("3_0wpys")]
 visible = false
-offset_left = 566.0
-offset_top = 300.0
-offset_right = 566.0
-offset_bottom = 300.0
+z_index = 10
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1080.0
+offset_bottom = 720.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="PauseMenu" parent="." unique_id=127774544 instance=ExtResource("4_0vfwn")]
 visible = false
@@ -32,6 +34,6 @@ offset_top = 309.0
 offset_right = 549.0
 offset_bottom = 309.0
 
-[connection signal="input_event" from="Monigote" to="." method="_on_monigote_input_event"]
-[connection signal="monigoteClicked" from="Monigote" to="." method="_on_monigote_monigote_clicked"]
+[connection signal="Cancel" from="KillView" to="." method="_on_kill_view_cancel"]
+[connection signal="KillMonigote" from="KillView" to="." method="_on_kill_view_kill_monigote"]
 [connection signal="setPause" from="PauseMenu" to="." method="_on_pause_menu_set_pause"]
