@@ -56,6 +56,9 @@ func _on_l_2_to_l_1_pressed() -> void:
 
 func _on_main_menu_pressed(tex = "res://UI/mainMenu.tscn") -> void:
 	var scene_tree = get_tree()
+	$Others/ButtonSound.play()
+	Engine.time_scale = 1
+	await get_tree().create_timer(0.35).timeout
 	scene_tree.change_scene_to_file(tex)
 
 
@@ -73,7 +76,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			$Others/QuitPause.play()
 			Engine.time_scale = 1
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.3).timeout
 			BgMusic.play(Global.music_time)
 		pause()
 

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpktrilcarvni"]
+[gd_scene load_steps=5 format=3 uid="uid://dpktrilcarvni"]
 
-[ext_resource type="Script" path="res://UI/fail_menu.gd" id="1_cbj0f"]
+[ext_resource type="Script" uid="uid://xolgml4b0k0l" path="res://UI/fail_menu.gd" id="1_cbj0f"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="2_pg14t"]
+[ext_resource type="AudioStream" uid="uid://bygd7tugac7pf" path="res://audio/vfx/Clickear.wav" id="3_nebjt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pg14t"]
+bg_color = Color(0.6, 0.49019608, 0.6, 0)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+shadow_color = Color(0, 0, 0, 0.29803923)
+shadow_size = 1
 
 [node name="Lost" type="Control"]
 layout_mode = 3
@@ -37,7 +47,8 @@ grow_vertical = 2
 theme = ExtResource("2_pg14t")
 theme_override_colors/font_color = Color(0, 0.6, 0.6, 1)
 theme_override_font_sizes/font_size = 200
-text = "You Lost"
+theme_override_styles/normal = SubResource("StyleBoxFlat_pg14t")
+text = " You Lost "
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -55,5 +66,9 @@ grow_vertical = 0
 theme = ExtResource("2_pg14t")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
+
+[node name="ButtonSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nebjt")
+volume_db = 12.37
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

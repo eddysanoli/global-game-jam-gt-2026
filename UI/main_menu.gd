@@ -17,7 +17,6 @@ func play():
 	Engine.time_scale = 1
 	await get_tree().create_timer(0.35).timeout
 	get_tree().change_scene_to_file("res://scenes/Floor1/floor1.tscn")
-	Engine.time_scale = 1
 
 #When exit button is clicked.
 func quit(): 
