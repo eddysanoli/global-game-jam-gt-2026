@@ -250,6 +250,19 @@ theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
+[node name="BtoL1" type="Button" parent="Objects/Control"]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 136.0
+offset_right = 532.0
+offset_bottom = 199.0
+theme = ExtResource("3_10rxd")
+theme_override_font_sizes/font_size = 40
+disabled = true
+action_mode = 0
+text = "1"
+script = ExtResource("4_tjkhk")
+
 [node name="MarcadoresAjo" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 

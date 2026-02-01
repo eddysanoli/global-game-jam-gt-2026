@@ -195,6 +195,18 @@ theme = ExtResource("3_eepb4")
 theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
+[node name="L1toL2" type="Button" parent="Objects"]
+offset_left = 488.0
+offset_top = 56.0
+offset_right = 529.0
+offset_bottom = 119.0
+theme = ExtResource("3_eepb4")
+theme_override_font_sizes/font_size = 40
+disabled = true
+action_mode = 0
+text = "2"
+script = ExtResource("3_mkb7x")
+
 [node name="MarcadoresAjo" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
