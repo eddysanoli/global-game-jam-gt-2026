@@ -5,9 +5,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7lw1"]
 radius = 20.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iify0"]
-radius = 200.0
-
 [node name="NPC" type="CharacterBody2D" unique_id=638687236]
 collision_layer = 2
 collision_mask = 0
@@ -26,8 +23,5 @@ debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 debug_path_custom_point_size = 9.95
-
-[node name="MovementArea" type="CollisionShape2D" parent="." unique_id=666329581]
-shape = SubResource("CircleShape2D_iify0")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
