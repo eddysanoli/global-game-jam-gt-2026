@@ -293,6 +293,9 @@ func execute_bite():
 # ─────────────────────────────────────────────
 # VICTIM STARTS BLEEDING
 func start_bleeding():
+	var tween = get_tree().create_tween()
+	tween.tween_property(%WPerson, "modulate", Color.RED, 0.8)
+	
 	if is_bleeding:
 		return
 
