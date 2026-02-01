@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://d2k0e415yr3m8"]
+
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="1_e53e0"]
+[ext_resource type="Script" uid="uid://4kncnjeffmov" path="res://UI/credits_screen.gd" id="1_hixkj"]
+
+[node name="CreditsScreen" type="Control" unique_id=580370175]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hixkj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1057196983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20784314, 0.3647059, 0.40784314, 1)
+
+[node name="Label" type="Label" parent="." unique_id=2046715935]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 71.0
+offset_right = 126.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 66
+text = "CREDITS"
+
+[node name="Button" type="Button" parent="." unique_id=1305903824]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -71.0
+offset_right = 99.0
+offset_bottom = -27.0
+grow_vertical = 0
+theme = ExtResource("1_e53e0")
+text = "   BACK   "
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=116465422]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -128.5
+offset_right = 327.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=738882107]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "ARTE"
+
+[node name="Label2" type="Label" parent="GridContainer" unique_id=512360812]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "          -         "
+
+[node name="Label3" type="Label" parent="GridContainer" unique_id=1589528263]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "EDDYWIS"
+
+[node name="Label4" type="Label" parent="GridContainer" unique_id=485152066]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "MUSICA"
+
+[node name="Label5" type="Label" parent="GridContainer" unique_id=640258782]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "          - "
+
+[node name="Label6" type="Label" parent="GridContainer" unique_id=114001999]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "TOCAYO"
+
+[node name="Label7" type="Label" parent="GridContainer" unique_id=827846640]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "NPC PROGRAMMING"
+
+[node name="Label8" type="Label" parent="GridContainer" unique_id=1956594779]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "          - "
+
+[node name="Label9" type="Label" parent="GridContainer" unique_id=1104692506]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "MENDRO"
+
+[node name="Label10" type="Label" parent="GridContainer" unique_id=1140755484]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "GIT EXPERT"
+
+[node name="Label11" type="Label" parent="GridContainer" unique_id=1521464987]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "          - "
+
+[node name="Label12" type="Label" parent="GridContainer" unique_id=2103192066]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "DREDRIN"
+
+[node name="Label13" type="Label" parent="GridContainer" unique_id=1524453606]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "STRUGGLE"
+
+[node name="Label14" type="Label" parent="GridContainer" unique_id=1006215034]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "          - "
+
+[node name="Label15" type="Label" parent="GridContainer" unique_id=179466541]
+layout_mode = 2
+theme = ExtResource("1_e53e0")
+theme_override_font_sizes/font_size = 50
+text = "RODERY"
+
+[node name="Label2" type="Label" parent="." unique_id=537977693]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -141.0
+offset_right = 100.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_e53e0")
+theme_override_colors/font_color = Color(0.8509804, 0.38431373, 0.41960785, 1)
+theme_override_font_sizes/font_size = 52
+text = "JUEGO DE VAMPIROS >:D"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
