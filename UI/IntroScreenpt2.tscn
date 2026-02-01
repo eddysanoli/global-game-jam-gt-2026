@@ -43,7 +43,8 @@ text = "Look for clues as to who the Vampire is:
 Who avoids garlick?
 Who was close to a victim?
 Save the masquerade by clicking
-on the correct person and killing the vampire"
+on the correct person and killing the vampire.
+Do not kill the host!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

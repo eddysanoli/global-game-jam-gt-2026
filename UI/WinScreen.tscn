@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpuenc2ae8ohy"]
+[gd_scene load_steps=6 format=3 uid="uid://dpuenc2ae8ohy"]
 
 [ext_resource type="Texture2D" uid="uid://b3lsufsmu18m7" path="res://graphics/mask_1.png" id="1_46rli"]
 [ext_resource type="Script" uid="uid://n1f24owdb3uk" path="res://UI/win_screen.gd" id="1_xcbig"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="2_xcbig"]
+[ext_resource type="AudioStream" uid="uid://bdhk2nbe2p3y" path="res://audio/vfx/Felicidades Shinji.wav" id="4_wmf7b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmf7b"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -75,5 +76,8 @@ theme = ExtResource("2_xcbig")
 theme_override_colors/font_color = Color(0.9254902, 0.6039216, 0.42745098, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.7607843, 0.47843137, 1)
 text = "RETURN TO MAIN MENU"
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wmf7b")
 
 [connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

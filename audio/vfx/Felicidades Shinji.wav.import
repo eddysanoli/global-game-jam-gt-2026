@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bdhk2nbe2p3y"
+path="res://.godot/imported/Felicidades Shinji.wav-501856a56184ee7943a50478995480ff.sample"
+
+[deps]
+
+source_file="res://audio/vfx/Felicidades Shinji.wav"
+dest_files=["res://.godot/imported/Felicidades Shinji.wav-501856a56184ee7943a50478995480ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

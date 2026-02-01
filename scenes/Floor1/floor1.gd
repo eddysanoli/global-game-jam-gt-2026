@@ -41,10 +41,12 @@ var walking = [
 	
 
 var vampireId;
+var specialNpcId;
 var vampireNumber;
+var specialNpcNumber;
 var rng = RandomNumberGenerator.new()
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
-@export var monigoteCount: int = 40;
+@export var monigoteCount: int = 30;
 @export var spawnLimitsY = 720
 @export var spawnLimitsX = 1080
 
@@ -53,9 +55,15 @@ var rng = RandomNumberGenerator.new()
 #Scene start
 func _ready() -> void:
 	Global.num_people = monigoteCount
-	vampireNumber = (randi() % monigoteCount)
+	vampireNumber = setRandomNumber()
+	specialNpcNumber = setRandomNumber()
+	while vampireNumber == specialNpcNumber:
+		specialNpcNumber = setRandomNumber()
 	#start_Garlic(5)
 	instantiateNpcs()
+
+func setRandomNumber() -> int:
+	return (randi() % monigoteCount)
 	
 
 func instantiateNpcs() -> void: 
@@ -72,6 +80,10 @@ func instantiateNpcs() -> void:
 		if i == vampireNumber:
 			vampireId = monigote
 			monigote.is_vampire = true
+		if i == specialNpcNumber:
+			specialNpcId = monigote
+			monigote.is_special = true
+			
 		monigote.position = Vector2(randf_range(-540+60, 540-60), randf_range(-360+60,360-60))
 		monigote.monigoteClicked.connect(_on_npc_clicked)
 		monigote.texture_person(walking[pep],mask_npc[mek])
@@ -172,6 +184,8 @@ func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
 	selectedMonigote.queue_free()
 	if selectedMonigote == vampireId :
 		get_tree().change_scene_to_file("res://UI/WinScreen.tscn")
+	elif selectedMonigote == specialNpcId:
+		get_tree().change_scene_to_file("res://UI/FailMenu.tscn")
 	else:
 		$"Others/Control/-10segs".showSelf()
 		$Scream.stream = grito.pick_random()

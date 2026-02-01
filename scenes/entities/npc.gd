@@ -45,6 +45,7 @@ var standing := false
 var justMoved := false
 
 # ───── Vampire / Bleeding──────────────────────
+@export var is_special := false
 @export var is_vampire := false
 @export var bite_chance := 0.9 
 @export var bite_range := 120.0
@@ -354,6 +355,8 @@ func fading():
 	tween.set_parallel(false)
 	tween.tween_property(self, "modulate:a", 0.0, 5)
 	await tween.finished
+	if self.is_special:
+		get_tree().change_scene_to_file("res://UI/FailMenu.tscn")
 	queue_free()
 	
 
