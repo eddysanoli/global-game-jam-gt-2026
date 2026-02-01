@@ -35,15 +35,13 @@ func _ready() -> void:
 
 func instantiateMonigotes() -> void:
 	for i in range(monigoteCount):
-		var monigote = monigoteScn.instantiate() as Monigote
+		var monigote = monigoteScn.instantiate() as NPC
 		Global.person[monigote.get_instance_id()] = {"mask_image":mask.pick_random(), 
 			"person_image":faces.pick_random()}
-		print(Global.person)
 		print('vamp number', vampireNumber)
 		if i == vampireNumber:
 			vampireId = monigote
 		monigote.position = Vector2(randf_range(0, spawnLimitsX), randf_range(0, spawnLimitsY))
-		print(monigote.position)
 		monigote.monigoteClicked.connect(_on_monigote_monigote_clicked)
 		add_child(monigote)
 	
@@ -71,7 +69,6 @@ func _on_pause_menu_set_pause(_bool: Variant) -> void:
 
 func _on_kill_view_cancel() -> void:
 	killMenu.hide()
-
 
 func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
 	if selectedMonigote == vampireId :

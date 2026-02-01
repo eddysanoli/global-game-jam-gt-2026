@@ -1,19 +1,30 @@
-[gd_scene format=3 uid="uid://bbc27r5p16d2g"]
+[gd_scene load_steps=4 format=3 uid="uid://bbc27r5p16d2g"]
 
 [ext_resource type="Script" uid="uid://bd4aqgtmjfr0t" path="res://scenes/entities/npc.gd" id="1_kdwfn"]
+[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://assets/icon.svg" id="2_4kvco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7lw1"]
-radius = 20.0
+radius = 68.84496
 
-[node name="NPC" type="CharacterBody2D" unique_id=638687236]
+[node name="NPC" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(0.578, 0.578)
 collision_layer = 2
 collision_mask = 0
+input_pickable = true
 script = ExtResource("1_kdwfn")
 
-[node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=6197283]
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.578, 0.578)
+texture = ExtResource("2_4kvco")
+
+[node name="CharacterCollision" type="CollisionShape2D" parent="."]
+z_index = 1
+scale = Vector2(0.578, 0.578)
 shape = SubResource("CircleShape2D_v7lw1")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=822541858]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 25.0
 target_desired_distance = 40.0
 path_max_distance = 40.0
@@ -23,4 +34,5 @@ debug_use_custom = true
 debug_path_custom_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 debug_path_custom_point_size = 9.95
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

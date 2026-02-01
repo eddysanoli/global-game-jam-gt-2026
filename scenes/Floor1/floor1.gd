@@ -4,15 +4,51 @@ extends Node2D
 var garlic_scene: PackedScene = preload("res://scenes/Objects/garlic/garlic.tscn")
 var mins: int
 var sec: int
-@onready var killMenu = $KillViewnew
+@onready var killMenu = $KillView
 @onready var pauseMenu = $PauseMenu
 var paused = false
+@onready var npcScn = preload("res://scenes/entities/npc.tscn")
+var mask = [
+	preload("res://graphics/mask_1.png"),
+	preload("res://graphics/mask_2.png"),
+	preload("res://graphics/mask_3.png"),
+	preload("res://graphics/mask_4.png"),
+	preload("res://graphics/mask_5.png")
+	
+	]
+var faces = [
+	preload("res://graphics/portrait_1.png")
+	]
+var vampireId;
+var vampireNumber;
+var rng = RandomNumberGenerator.new()
+@export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
+@export var monigoteCount: int = 10;
+@export var spawnLimitsY = 720
+@export var spawnLimitsX = 1080
 
 
 
 #Scene start
 func _ready() -> void:
+	vampireNumber = (randi() % monigoteCount)
 	start_Garlic()
+	instantiateNpcs()
+	
+
+func instantiateNpcs() -> void: 
+	for i in range(monigoteCount):
+		var monigote = npcScn.instantiate() as NPC
+		Global.person[monigote.get_instance_id()] = {"mask_image":mask.pick_random(), 
+			"person_image":faces.pick_random()}
+		print(Global.person, "\n")
+		print('vamp number', vampireNumber)
+		if i == vampireNumber:
+			vampireId = monigote
+			monigote.is_vampire = true
+		monigote.position = Vector2(randf_range(0, spawnLimitsX), randf_range(0, spawnLimitsY))
+		monigote.monigoteClicked.connect(_on_npc_clicked)
+		add_child(monigote)
 
 
 
@@ -94,3 +130,16 @@ func pause() -> void:
 #Timer
 func _on_timer_timeout() -> void:
 	Global.countdown -= 1
+
+func _on_npc_clicked(node: Variant) -> void:
+	print(node.name)
+	killMenu.setKillerName(node);
+	killMenu.show()
+
+
+func _on_kill_view_cancel() -> void:
+	killMenu.hide()
+
+func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
+	if selectedMonigote == vampireId :
+		print('yaaaaayyy')

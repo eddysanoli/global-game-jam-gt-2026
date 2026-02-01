@@ -1,13 +1,18 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=20 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://b45vru5xs85rd" path="res://scenes/Floor1/Bkg_f1_final.png" id="2_ca35p"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="3_10rxd"]
-[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/Objects/player/player.tscn" id="3_ca35p"]
 [ext_resource type="AudioStream" uid="uid://wpex7fpxx06k" path="res://audio/vfx/Poner Pausa en wav.wav" id="4_mgwap"]
 [ext_resource type="AudioStream" uid="uid://ctc8ce5myaigh" path="res://audio/vfx/Quitar pausa en wav.wav" id="5_ly76x"]
 [ext_resource type="AudioStream" uid="uid://bygd7tugac7pf" path="res://audio/vfx/Clickear.wav" id="5_mgwap"]
 [ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_ca35p"]
+[ext_resource type="PackedScene" uid="uid://bwrm4swv0p5pj" path="res://scenes/KillView/KillView.tscn" id="10_mqcml"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mgwap"]
+vertices = PackedVector2Array(-435.70313, -112.578125, -463.03906, -116.63281, -463.9375, -286.96875, -122, -286.02344, -122, -275, 103, -275, 103, -286, 464.0625, -286, 466.9922, 195.09375, 463.6875, 212.70313, 258, 281, 223.34375, 281, -442.78906, 280.21875, -450.35156, 284, -462, 284, -462, 81, -431.14063, 273.8672, -411.25, 266.53906, -442.34375, 81, -385.5078, 258.29688, -354.47656, 252.10156, 103.53125, 279, 102.53125, 284.96875, -172.75781, 284, -185.82813, 277.90625, -323.34375, 248.97656, 469.9375, 231.46094, 468.07813, 282.46875, 466.8203, 285, 261, 285, 220.34375, 286, 146.79688, 279, 150.79688, 286, -206.39844, 268.64844, -241.46875, 257.3125, -267.57813, 252.09375, -291.40625, 250.00781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 16, 15, 18), PackedInt32Array(19, 17, 18), PackedInt32Array(20, 19, 18), PackedInt32Array(18, 21, 22, 23, 24), PackedInt32Array(25, 20, 18), PackedInt32Array(9, 26, 27, 28, 29, 10), PackedInt32Array(18, 0, 4, 5, 11, 30, 31), PackedInt32Array(30, 32, 31), PackedInt32Array(18, 31, 21), PackedInt32Array(18, 24, 33), PackedInt32Array(18, 33, 34), PackedInt32Array(18, 34, 35), PackedInt32Array(18, 35, 36), PackedInt32Array(18, 36, 25)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-474, -297, -112, -296, -112, -285, 93, -285, 93, -296, 474, -296, 477, 196, 474, 212, 480, 230, 478, 285, 473, 295, 256, 295, 253, 291, 229, 291, 226, 296, 145, 296, 141, 289, 112, 289, 111, 295, -175, 294, -190, 287, -210, 278, -244, 267, -269, 262, -292, 260, -323, 259, -353, 262, -383, 268, -408, 276, -427, 283, -438, 289, -448, 294, -472, 294, -472, 71, -452, 71, -446, -104, -473, -108)])
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca35p"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -75,6 +80,9 @@ position = Vector2(-1.4923096, -1.0000153)
 scale = Vector2(0.5020862, 0.5020862)
 texture = ExtResource("2_ca35p")
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Others"]
+navigation_polygon = SubResource("NavigationPolygon_mgwap")
+
 [node name="Control" type="Control" parent="Others"]
 layout_mode = 3
 anchor_top = 0.001
@@ -84,6 +92,7 @@ offset_top = -357.72
 offset_right = 537.0
 offset_bottom = 360.28
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="FloorName" type="Label" parent="Others/Control"]
 layout_mode = 1
@@ -230,9 +239,6 @@ shape = SubResource("SegmentShape2D_ewwm8")
 [node name="Objects" type="Node2D" parent="."]
 z_index = 1
 
-[node name="Player" parent="Objects" instance=ExtResource("3_ca35p")]
-z_index = 1
-
 [node name="Control" type="Control" parent="Objects"]
 layout_mode = 3
 anchors_preset = 0
@@ -262,16 +268,6 @@ theme_override_font_sizes/font_size = 40
 disabled = true
 action_mode = 0
 text = "2"
-
-[node name="MainMenu" type="Button" parent="Objects/Control"]
-layout_mode = 0
-offset_left = -468.0
-offset_top = -350.0
-offset_right = -301.0
-offset_bottom = -307.0
-theme = ExtResource("3_10rxd")
-theme_override_font_sizes/font_size = 25
-text = "Main Menu"
 
 [node name="BtoL1" type="Button" parent="Objects/Control"]
 layout_mode = 0
@@ -315,8 +311,13 @@ position = Vector2(392, 40)
 [node name="PauseMenu" parent="." instance=ExtResource("6_ca35p")]
 visible = false
 
+[node name="KillView" parent="." instance=ExtResource("10_mqcml")]
+visible = false
+z_index = 5
+
 [connection signal="timeout" from="Others/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Objects/Control/L1toB" to="." method="_on_l_1_to_b_pressed"]
 [connection signal="pressed" from="Objects/Control/L1toL2" to="." method="_on_l_1_to_l_2_pressed"]
-[connection signal="pressed" from="Objects/Control/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="setPause" from="PauseMenu" to="." method="_on_pause_menu_set_pause"]
+[connection signal="Cancel" from="KillView" to="." method="_on_kill_view_cancel"]
+[connection signal="KillMonigote" from="KillView" to="." method="_on_kill_view_kill_monigote"]

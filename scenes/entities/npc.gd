@@ -1,4 +1,6 @@
-extends CharacterBody2D
+class_name NPC extends CharacterBody2D
+
+signal monigoteClicked(node)
 
 # ─────────────────────────────────────────────
 # Object Properties
@@ -33,7 +35,7 @@ var justMoved := false
 
 # ───── Vampire / Bleeding──────────────────────
 @export var is_vampire := false
-@export var bite_chance := 1 
+@export var bite_chance := 0.5 
 @export var bite_range := 120.0
 @export var bite_distance := 80.0
 @export var bite_cooldown_time := 5.0
@@ -343,3 +345,14 @@ func check_stuck(delta):
 		pickRandomPoint(global_position)
 
 	last_position = global_position
+	
+## -------------------------------------------------
+#func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+#	if event.is_action_pressed("click"):
+#		monigoteClicked.emit(self)
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		print('click')
+		monigoteClicked.emit(self)
