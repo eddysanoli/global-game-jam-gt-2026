@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=11 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
-[ext_resource type="Texture2D" uid="uid://bde5ytmgc16ge" path="res://scenes/Floor1/bkg_f1.png" id="2_tjkhk"]
+[ext_resource type="Texture2D" uid="uid://b45vru5xs85rd" path="res://scenes/Floor1/Bkg_f1_final.png" id="2_ca35p"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="3_10rxd"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
 [ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
+[ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_ca35p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10rxd"]
 bg_color = Color(0, 0, 0, 1)
@@ -31,7 +32,7 @@ script = ExtResource("1_tjkhk")
 z_index = -1
 position = Vector2(-1.4923096, -1.0000153)
 scale = Vector2(0.5020862, 0.5020862)
-texture = ExtResource("2_tjkhk")
+texture = ExtResource("2_ca35p")
 
 [node name="Control" type="Control" parent="Others"]
 layout_mode = 3
@@ -108,9 +109,9 @@ text = "Seconds"
 
 [node name="FloorLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 1027.0
+offset_left = 1022.0
 offset_top = 380.0
-offset_right = 1067.0
+offset_right = 1070.0
 offset_bottom = 403.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 16
@@ -234,7 +235,11 @@ position = Vector2(-381, 225)
 [node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
 position = Vector2(464, 19)
 
+[node name="PauseMenu" parent="." instance=ExtResource("6_ca35p")]
+visible = false
+
 [connection signal="timeout" from="Others/Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Objects/Control/L1toB" to="." method="_on_l_1_to_b_pressed"]
 [connection signal="pressed" from="Objects/Control/L1toL2" to="." method="_on_l_1_to_l_2_pressed"]
 [connection signal="pressed" from="Objects/Control/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="setPause" from="PauseMenu" to="." method="_on_pause_menu_set_pause"]

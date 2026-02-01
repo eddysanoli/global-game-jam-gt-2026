@@ -3,6 +3,9 @@ extends Node2D
 var garlic_scene: PackedScene = preload("res://scenes/garlic/garlic.tscn")
 var mins: int
 var sec: int
+@onready var killMenu = $KillViewnew
+@onready var pauseMenu = $PauseMenu
+var paused = false
 
 func _ready() -> void:
 	start_Garlic()
@@ -50,6 +53,23 @@ func _on_main_menu_pressed(tex = "res://UI/mainMenu.tscn") -> void:
 	Global.garlic_l1 = Vector2(0,0)
 	Global.garlic_l2 = Vector2(0,0)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pause"):
+		pause()
 
 func _on_timer_timeout() -> void:
 	Global.countdown -= 1
+	
+
+func pause() -> void:
+	if paused:
+		pauseMenu.hide()
+		Engine.time_scale = 1
+	else: 
+		pauseMenu.show()
+		Engine.time_scale = 0
+	paused = !paused
+
+
+func _on_pause_menu_set_pause(bool: Variant) -> void:
+	pause()
