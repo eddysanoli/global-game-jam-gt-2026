@@ -40,7 +40,7 @@ theme = ExtResource("1_invo8")
 theme_override_colors/font_color = Color(1, 1, 0.36078432, 1)
 theme_override_constants/paragraph_spacing = 10
 text = "Look for clues as to who the Vampire is:
-Who avoids garlick?
+Who avoids the garlic bread?
 Who was close to a victim?
 Save the masquerade by clicking
 on the correct person and killing the vampire.
