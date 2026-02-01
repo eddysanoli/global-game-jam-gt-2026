@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Monigote extends CharacterBody2D
 
 signal monigoteClicked(node)
 

@@ -1,14 +1,17 @@
 [gd_scene load_steps=0 format=3 uid="uid://bwrm4swv0p5pj"]
 
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="1_cngpl"]
+[ext_resource type="Script" uid="uid://b5wlmj6mdagia" path="res://UI/kill_view.gd" id="1_jyp88"]
 
 [node name="KillView" type="Control" unique_id=1105548395]
+custom_minimum_size = Vector2(1080, 720)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jyp88")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1299344515]
 layout_mode = 1
@@ -35,12 +38,29 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=1237317246]
+[node name="Kill" type="Button" parent="HBoxContainer" unique_id=1237317246]
 layout_mode = 2
 theme = ExtResource("1_cngpl")
 text = "        KILL         "
 
-[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1850443902]
+[node name="Cancel" type="Button" parent="HBoxContainer" unique_id=1850443902]
 layout_mode = 2
 theme = ExtResource("1_cngpl")
 text = "        Cancel         "
+
+[node name="PersonName" type="Label" parent="." unique_id=225337855]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = 76.0
+offset_right = 259.0
+offset_bottom = 228.0
+grow_horizontal = 2
+theme = ExtResource("1_cngpl")
+theme_override_font_sizes/font_size = 111
+text = "VAMPIRO"
+
+[connection signal="button_down" from="HBoxContainer/Kill" to="." method="_on_kill_button_down"]
+[connection signal="button_down" from="HBoxContainer/Cancel" to="." method="_on_cancel_button_down"]
