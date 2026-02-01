@@ -18,6 +18,7 @@ var mask = [
 	preload("res://graphics/mask_3.png"),
 	preload("res://graphics/mask_4.png"),
 	preload("res://graphics/mask_5.png")
+	
 	]
 var faces = [
 	preload("res://graphics/portrait_1.png")
