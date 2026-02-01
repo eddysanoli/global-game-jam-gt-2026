@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh2hyaa6va6wi"
-path="res://.godot/imported/mansion_place_holder.webp-6b67b09f1b18f99ddbc3113f6bf16f24.ctex"
+uid="uid://b3lsufsmu18m7"
+path="res://.godot/imported/mask_1.png-29fb961518d4a8bc7f66c751de3bac8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/mansion_place_holder.webp"
-dest_files=["res://.godot/imported/mansion_place_holder.webp-6b67b09f1b18f99ddbc3113f6bf16f24.ctex"]
+source_file="res://graphics/mask_1.png"
+dest_files=["res://.godot/imported/mask_1.png-29fb961518d4a8bc7f66c751de3bac8c.ctex"]
 
 [params]
 

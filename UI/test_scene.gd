@@ -12,6 +12,16 @@ var vampireId;
 var vampireNumber;
 var rng = RandomNumberGenerator.new()
 
+var mask = [
+	preload("res://graphics/mask_1.png"),
+	preload("res://graphics/mask_2.png"),
+	preload("res://graphics/mask_3.png"),
+	]
+var faces = [
+	preload("res://graphics/portrait_1.png")
+	]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	vampireNumber = (randi() % monigoteCount) + 1
@@ -23,6 +33,8 @@ func _ready() -> void:
 func instantiateMonigotes() -> void:
 	for i in range(monigoteCount):
 		var monigote = monigoteScn.instantiate() as Monigote
+		var mask_image = mask.pick_random()
+		$Mask.texture = mask_image
 		print('vamp number', vampireNumber)
 		if i == vampireNumber:
 			vampireId = monigote

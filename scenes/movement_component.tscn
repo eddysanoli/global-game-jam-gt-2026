@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c87f4r3b055bm"]
+[gd_scene load_steps=0 format=3 uid="uid://c87f4r3b055bm"]
 
 [ext_resource type="Script" uid="uid://dvpqs1tw5lkn8" path="res://scenes/movement_component.gd" id="1_aie7v"]
 

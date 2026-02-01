@@ -2,9 +2,12 @@ extends Control
 
 @onready var killerName = $PersonName
 var selectedMonigote;
+var people
+var mask
 
 signal KillMonigote(node)
 signal Cancel
+
 
 
 func setKillerName(monigote: Node2D) -> void:
