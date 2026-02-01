@@ -275,7 +275,7 @@ position = Vector2(151, -110)
 position = Vector2(-381, 225)
 
 [node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
-position = Vector2(464, 19)
+position = Vector2(392, 40)
 
 [node name="PauseMenu" parent="." instance=ExtResource("6_ca35p")]
 visible = false
