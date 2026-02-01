@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwrm4swv0p5pj"]
+[gd_scene load_steps=6 format=3 uid="uid://bwrm4swv0p5pj"]
 
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="1_cngpl"]
 [ext_resource type="Script" uid="uid://b5wlmj6mdagia" path="res://scenes/KillView/kill_view.gd" id="1_jyp88"]
+[ext_resource type="Texture2D" uid="uid://b0irfnsw6ego8" path="res://graphics/portrait_1.png" id="3_u5cv6"]
+[ext_resource type="Texture2D" uid="uid://b7ufopakqk8uc" path="res://graphics/mask_5.png" id="4_qx2fu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5cv6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -77,6 +79,18 @@ Is this a "
 vertical_alignment = 1
 autowrap_trim_flags = 0
 justification_flags = 160
+
+[node name="Person" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(818, 273)
+scale = Vector2(0.17591125, 0.17591123)
+texture = ExtResource("3_u5cv6")
+
+[node name="Mask" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(817.00006, 274.00003)
+scale = Vector2(0.1816537, 0.1816537)
+texture = ExtResource("4_qx2fu")
 
 [connection signal="button_down" from="HBoxContainer/Kill" to="." method="_on_kill_button_down"]
 [connection signal="button_down" from="HBoxContainer/Cancel" to="." method="_on_cancel_button_down"]

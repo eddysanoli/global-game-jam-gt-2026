@@ -16,6 +16,8 @@ var mask = [
 	preload("res://graphics/mask_1.png"),
 	preload("res://graphics/mask_2.png"),
 	preload("res://graphics/mask_3.png"),
+	preload("res://graphics/mask_4.png"),
+	preload("res://graphics/mask_5.png")
 	]
 var faces = [
 	preload("res://graphics/portrait_1.png")
@@ -33,8 +35,9 @@ func _ready() -> void:
 func instantiateMonigotes() -> void:
 	for i in range(monigoteCount):
 		var monigote = monigoteScn.instantiate() as Monigote
-		var mask_image = mask.pick_random()
-		$Mask.texture = mask_image
+		Global.person[monigote.get_instance_id()] = {"mask_image":mask.pick_random(), 
+			"person_image":faces.pick_random()}
+		print(Global.person)
 		print('vamp number', vampireNumber)
 		if i == vampireNumber:
 			vampireId = monigote

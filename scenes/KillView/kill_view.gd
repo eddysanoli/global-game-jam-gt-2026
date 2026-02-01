@@ -14,6 +14,9 @@ func setKillerName(monigote: Node2D) -> void:
 	killerName.text = " vampire?\n Is this a";
 	selectedMonigote = monigote
 	print(monigote)
+	var dic = Global.person[selectedMonigote.get_instance_id()]
+	$Mask.texture = dic.mask_image
+	$Person.texture = dic.person_image
 
 
 func _on_kill_button_down() -> void:

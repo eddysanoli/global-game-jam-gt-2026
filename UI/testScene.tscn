@@ -38,16 +38,6 @@ offset_bottom = 309.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(542, 362)
 
-[node name="Person" type="Sprite2D" parent="."]
-z_index = 4
-position = Vector2(818, 273)
-scale = Vector2(0.17591125, 0.17591123)
-
-[node name="Mask" type="Sprite2D" parent="."]
-z_index = 4
-position = Vector2(816, 210)
-scale = Vector2(0.1816537, 0.1816537)
-
 [connection signal="Cancel" from="KillView" to="." method="_on_kill_view_cancel"]
 [connection signal="KillMonigote" from="KillView" to="." method="_on_kill_view_kill_monigote"]
 [connection signal="setPause" from="PauseMenu" to="." method="_on_pause_menu_set_pause"]
