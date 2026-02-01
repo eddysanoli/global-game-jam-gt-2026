@@ -164,6 +164,17 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_xb6f7")
 text = "Floor"
 
+[node name="FloorLabel2" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 666.0
+offset_right = 1068.0
+offset_bottom = 694.0
+theme = ExtResource("3_10rxd")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_xb6f7")
+text = "More floors in the future!!"
+
 [node name="MinLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
 offset_top = 133.0
@@ -236,6 +247,7 @@ offset_right = 531.0
 offset_bottom = 279.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
+disabled = true
 action_mode = 0
 text = "B"
 
@@ -247,6 +259,7 @@ offset_right = 531.0
 offset_bottom = 119.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
+disabled = true
 action_mode = 0
 text = "2"
 
