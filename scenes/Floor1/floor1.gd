@@ -14,8 +14,14 @@ var mask = [
 	preload("res://graphics/mask_3.png"),
 	preload("res://graphics/mask_4.png"),
 	preload("res://graphics/mask_5.png")
-	
 	]
+var grito = [
+	preload("res://audio/vfx/Grito 3 (Dama).wav"),
+	preload("res://audio/vfx/Grito 6 (Suena a Toad).wav"),
+	preload("res://audio/vfx/Grito 7 (Señor).wav"),
+	preload("res://audio/vfx/Grito 8 (Hombre chichon).wav")
+	]
+
 var faces = [
 	preload("res://graphics/portrait_1.png")
 	]
@@ -23,7 +29,7 @@ var vampireId;
 var vampireNumber;
 var rng = RandomNumberGenerator.new()
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
-@export var monigoteCount: int = 10;
+@export var monigoteCount: int = 60;
 @export var spawnLimitsY = 720
 @export var spawnLimitsX = 1080
 
@@ -31,8 +37,9 @@ var rng = RandomNumberGenerator.new()
 
 #Scene start
 func _ready() -> void:
+	Global.num_people = monigoteCount
 	vampireNumber = (randi() % monigoteCount)
-	start_Garlic()
+	start_Garlic(5)
 	instantiateNpcs()
 	
 
@@ -69,15 +76,16 @@ func _process(_delta: float) -> void:
 
 
 #Set the garlic in a random place, but stays in the position during the game
-func start_Garlic():
-	var garlic = garlic_scene.instantiate() as StaticBody2D
-	var pos_marker = $MarcadoresAjo.get_children().pick_random() as Marker2D
-	if Global.garlic_l1.is_zero_approx():
-		Global.garlic_l1 = pos_marker.position
-	else:
-		pos_marker.position = Global.garlic_l1
-	garlic.position = pos_marker.position
-	$Objects.add_child(garlic)
+func start_Garlic(num_garlic):
+	for i in range(num_garlic):
+		var garlic = garlic_scene.instantiate() as StaticBody2D
+		var pos_marker = $MarcadoresAjo.get_children().pick_random() as Marker2D
+		#if Global.garlic_l1.is_zero_approx():
+		#	Global.garlic_l1 = pos_marker.position
+		#else:
+		#	pos_marker.position = Global.garlic_l1
+		garlic.position = pos_marker.position
+		$Objects.add_child(garlic)
 
 
 
@@ -141,5 +149,11 @@ func _on_kill_view_cancel() -> void:
 	killMenu.hide()
 
 func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
+	Global.num_people -= 1
+	selectedMonigote.queue_free()
 	if selectedMonigote == vampireId :
 		print('yaaaaayyy')
+	else:
+		$Scream.stream = grito.pick_random()
+		$Scream.play()
+	killMenu.hide()

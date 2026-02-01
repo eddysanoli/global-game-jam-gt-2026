@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://iuh87n32hsxf"
+path="res://.godot/imported/Grito 6 (Suena a Toad).wav-996472372a5b81a51c65bb3d0d8b4f4a.sample"
+
+[deps]
+
+source_file="res://audio/vfx/Grito 6 (Suena a Toad).wav"
+dest_files=["res://.godot/imported/Grito 6 (Suena a Toad).wav-996472372a5b81a51c65bb3d0d8b4f4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -17,4 +17,4 @@ texture = ExtResource("1_p5428")
 shape = SubResource("CircleShape2D_sc6fy")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 50.0
+radius = 70.0

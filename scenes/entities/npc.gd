@@ -2,10 +2,20 @@ class_name NPC extends CharacterBody2D
 
 signal monigoteClicked(node)
 
+var grito = [
+		preload("res://audio/vfx/Grito 3 (Dama).wav"),
+		preload("res://audio/vfx/Grito 6 (Suena a Toad).wav"),
+		preload("res://audio/vfx/Grito 7 (Señor).wav"),
+		preload("res://audio/vfx/Grito 8 (Hombre chichon).wav")
+	]
+
 # ─────────────────────────────────────────────
 # Object Properties
 @export var speed_min: float = 50
 @export var speed_max: float = 80
+
+@onready var sprite_holder: Node2D = $SpriteHolder
+@onready var sprite_2d: Sprite2D = $SpriteHolder/Sprite2D
 
 # Repetition Protection
 @export var memory_size: int = 5
@@ -151,6 +161,7 @@ func navigate_safe():
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
+	sprite_holder.rotation = lerp_angle(sprite_holder.rotation, velocity.angle(), 0.1)
 	move_and_slide()
 
 
@@ -272,8 +283,8 @@ func execute_bite():
 	has_active_target = false
 	nav2d.velocity = Vector2.ZERO
 	print("CHOMP")
+	$Chomp.play()
 	bite_target.start_bleeding()
-
 	bite_target = null
 	justMoved = true
 	move_cooldown = 3.0
@@ -331,6 +342,9 @@ func interact_with_stairs():
 func fading():
 	pass
 	queue_free()
+	$Scream.stream = grito.pick_random()
+	$Scream.play()
+	Global.num_people -= 1
 
 # ─────────────────────────────────────────────
 func check_stuck(delta):
