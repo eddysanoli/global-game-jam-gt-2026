@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=17 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://b45vru5xs85rd" path="res://scenes/Floor1/Bkg_f1_final.png" id="2_ca35p"]
@@ -7,8 +7,50 @@
 [ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
 [ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_ca35p"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca35p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.5254902)
+shadow_size = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10rxd"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uq5t8"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.5254902)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgwap"]
+bg_color = Color(0.003921569, 0.003921569, 0.003921569, 0)
+shadow_color = Color(0, 0, 0, 0.5254902)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mqcml"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0.5254902)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0aww1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0.5254902)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb6f7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kra1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0.5254902)
+shadow_size = 10
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rsf5d"]
 a = Vector2(-474, -298)
@@ -17,9 +59,6 @@ b = Vector2(-474, 296)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ewwm8"]
 a = Vector2(-475, 296)
 b = Vector2(475, 296)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly76x"]
-bg_color = Color(0, 0, 0, 1)
 
 [node name="Floor1" type="Node2D"]
 script = ExtResource("1_tjkhk")
@@ -55,6 +94,7 @@ offset_bottom = 58.0
 grow_horizontal = 2
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_ca35p")
 theme_override_styles/focus = SubResource("StyleBoxFlat_10rxd")
 text = "Floor 1"
 
@@ -67,44 +107,48 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -201.5
 offset_top = -62.0
-offset_right = 201.5
+offset_right = 175.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 42
-text = "There are 20 people"
+theme_override_styles/normal = SubResource("StyleBoxFlat_uq5t8")
+text = "There are 20 people alive"
 
 [node name="Minutes" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 5.0
 offset_top = 74.0
-offset_right = 53.0
+offset_right = 51.0
 offset_bottom = 129.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgwap")
 theme_override_styles/focus = SubResource("StyleBoxFlat_10rxd")
 text = "20"
 
 [node name="Seconds" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 5.0
 offset_top = 151.0
-offset_right = 53.0
+offset_right = 51.0
 offset_bottom = 206.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mqcml")
 theme_override_styles/focus = SubResource("StyleBoxFlat_10rxd")
 text = "59"
 
 [node name="SecLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 3.0
+offset_left = 1.0
 offset_top = 208.0
-offset_right = 54.0
+offset_right = 52.0
 offset_bottom = 227.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_0aww1")
 text = "Seconds"
 
 [node name="FloorLabel" type="Label" parent="Others/Control"]
@@ -115,16 +159,17 @@ offset_right = 1071.0
 offset_bottom = 406.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_xb6f7")
 text = "Floor"
 
 [node name="MinLabel" type="Label" parent="Others/Control"]
 layout_mode = 0
-offset_left = 2.0
 offset_top = 133.0
-offset_right = 54.0
+offset_right = 52.0
 offset_bottom = 152.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kra1")
 text = "Minutes"
 
 [node name="Timer" type="Timer" parent="Others"]
@@ -179,7 +224,6 @@ offset_right = 531.0
 offset_bottom = 279.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ly76x")
 action_mode = 0
 text = "B"
 script = ExtResource("4_tjkhk")
@@ -192,7 +236,6 @@ offset_right = 531.0
 offset_bottom = 119.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_ly76x")
 action_mode = 0
 text = "2"
 script = ExtResource("4_tjkhk")
@@ -205,7 +248,6 @@ offset_right = -301.0
 offset_bottom = -307.0
 theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_ly76x")
 text = "Main Menu"
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]

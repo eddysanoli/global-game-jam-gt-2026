@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyqo0j8p136bo"]
+[gd_scene load_steps=11 format=3 uid="uid://cyqo0j8p136bo"]
 
 [ext_resource type="Script" uid="uid://udvqjbn76aru" path="res://scenes/Basement/basement.gd" id="1_fv2i8"]
 [ext_resource type="Texture2D" uid="uid://281gdjupmrde" path="res://scenes/Basement/bg.png" id="1_huuf7"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_fv2i8"]
 [ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_7q75m"]
 [ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_4ss7x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ss7x"]
+shadow_color = Color(0, 0, 0, 0.4509804)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q75m"]
 bg_color = Color(0, 0, 0, 1)
@@ -72,7 +75,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_7q75m")
 theme_override_font_sizes/font_size = 42
-text = "There are 20 people"
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ss7x")
+text = "There are 20 people alive"
 
 [node name="Minutes" type="Label" parent="Others/Control"]
 layout_mode = 0
