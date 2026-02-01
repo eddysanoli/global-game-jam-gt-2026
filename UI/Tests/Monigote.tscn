@@ -7,13 +7,18 @@
 size = Vector2(130, 128)
 
 [node name="Monigote" type="CharacterBody2D" unique_id=1613542649]
+z_index = 2
+z_as_relative = false
 input_pickable = true
 script = ExtResource("1_4fgyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1623536484]
+z_as_relative = false
 texture = ExtResource("1_wpdq5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1486122065]
+z_index = 2
+z_as_relative = false
 shape = SubResource("RectangleShape2D_4fgyk")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
