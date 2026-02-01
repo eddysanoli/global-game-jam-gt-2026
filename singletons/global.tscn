@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://doptjm45p6lva"]
+
+[ext_resource type="Script" uid="uid://da5un7c5plqqv" path="res://singletons/global.gd" id="1_4pk28"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_4pk28")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

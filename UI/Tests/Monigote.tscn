@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://2l7t2gjjmk2x"]
+[gd_scene load_steps=0 format=3 uid="uid://2l7t2gjjmk2x"]
 
 [ext_resource type="Script" uid="uid://cyk8ehvnnxbpg" path="res://UI/Tests/monigote.gd" id="1_4fgyk"]
-[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://icon.svg" id="1_wpdq5"]
+[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://assets/icon.svg" id="1_wpdq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fgyk"]
 size = Vector2(130, 128)

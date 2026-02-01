@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cftxnkboa6kjn"]
 
-[ext_resource type="Texture2D" uid="uid://dh2hyaa6va6wi" path="res://UI/Images/mansion_place_holder.webp" id="1_88dob"]
+[ext_resource type="Texture2D" uid="uid://dh2hyaa6va6wi" path="res://UI/mansion_place_holder.webp" id="1_88dob"]
 [ext_resource type="Script" uid="uid://b02wc7hwxhagc" path="res://UI/main_menu.gd" id="1_ne5gk"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="3_em8oq"]
 [ext_resource type="FontFile" uid="uid://c6xmv6xoqt3xw" path="res://fonts/Bokor-Regular.ttf" id="4_urvjm"]

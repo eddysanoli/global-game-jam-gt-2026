@@ -13,11 +13,11 @@ config_version=5
 config/name="GGM-GT-2026"
 run/main_scene="uid://cftxnkboa6kjn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
+Global="*res://singletons/global.gd"
 BgMusic="*res://audio/music/BGMusic.tscn"
 
 [display]

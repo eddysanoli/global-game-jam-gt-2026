@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bmb71f2cti8n"]
+[gd_scene load_steps=0 format=3 uid="uid://bmb71f2cti8n"]
 
-[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://icon.svg" id="1_e7u1v"]
+[ext_resource type="Texture2D" uid="uid://yc5qo1m1fo2d" path="res://assets/icon.svg" id="1_e7u1v"]
 
 [node name="Jugador pipe" type="Node2D" unique_id=679273842]
 
