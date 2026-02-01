@@ -196,6 +196,7 @@ func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
 		get_tree().change_scene_to_file("res://UI/FailMenu.tscn")
 	else:
 		$"Others/Control/-10segs".showSelf()
+		$Others/Control/killScreen.showSelf()
 		$Scream.stream = grito.pick_random()
 		$Scream.play()
 		Global.countdown -= 15

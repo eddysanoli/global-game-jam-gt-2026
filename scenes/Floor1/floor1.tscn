@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=24 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://b45vru5xs85rd" path="res://scenes/Floor1/Bkg_f1_final.png" id="2_ca35p"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://ctc8ce5myaigh" path="res://audio/vfx/Quitar pausa en wav.wav" id="5_ly76x"]
 [ext_resource type="AudioStream" uid="uid://bygd7tugac7pf" path="res://audio/vfx/Clickear.wav" id="5_mgwap"]
 [ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_ca35p"]
+[ext_resource type="Texture2D" uid="uid://bs02o5mmay685" path="res://graphics/kill_screen.png" id="6_xb6f7"]
+[ext_resource type="Script" uid="uid://dlkw7as7a5o2i" path="res://scenes/Floor1/kill_screen.gd" id="7_3kra1"]
 [ext_resource type="PackedScene" uid="uid://bwrm4swv0p5pj" path="res://scenes/KillView/KillView.tscn" id="10_mqcml"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mgwap"]
@@ -248,6 +250,13 @@ grow_horizontal = 2
 theme = ExtResource("3_10rxd")
 text = "- 15 segs"
 script = ExtResource("4_ly76x")
+
+[node name="killScreen" type="Sprite2D" parent="Others/Control"]
+visible = false
+position = Vector2(539, 357)
+scale = Vector2(0.36691037, 0.37652445)
+texture = ExtResource("6_xb6f7")
+script = ExtResource("7_3kra1")
 
 [node name="Timer" type="Timer" parent="Others"]
 autostart = true
