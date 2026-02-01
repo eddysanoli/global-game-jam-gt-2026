@@ -6,8 +6,8 @@ var paused = false
 
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
 @export var monigoteCount: int = 5;
-@export var spawnLimitsY = 1000
-@export var spawnLimitsX = 1000
+@export var spawnLimitsY = 720
+@export var spawnLimitsX = 1080
 var vampireId;
 var vampireNumber;
 var rng = RandomNumberGenerator.new()
@@ -19,10 +19,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
+
 func instantiateMonigotes() -> void:
 	for i in range(monigoteCount):
 		var monigote = monigoteScn.instantiate() as Monigote
@@ -30,6 +27,7 @@ func instantiateMonigotes() -> void:
 		if i == vampireNumber:
 			vampireId = monigote
 		monigote.position = Vector2(randf_range(0, spawnLimitsX), randf_range(0, spawnLimitsY))
+		print(monigote.position)
 		monigote.monigoteClicked.connect(_on_monigote_monigote_clicked)
 		add_child(monigote)
 	
@@ -52,7 +50,7 @@ func _on_monigote_monigote_clicked(node: Variant) -> void:
 	killMenu.setKillerName(node);
 	killMenu.show()
 
-func _on_pause_menu_set_pause(bool: Variant) -> void:
+func _on_pause_menu_set_pause(_bool: Variant) -> void:
 	pause()
 
 func _on_kill_view_cancel() -> void:

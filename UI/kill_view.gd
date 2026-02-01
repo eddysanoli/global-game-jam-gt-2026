@@ -6,14 +6,6 @@ var selectedMonigote;
 signal KillMonigote(node)
 signal Cancel
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func setKillerName(monigote: Node2D) -> void:
 	killerName.text = monigote.name;

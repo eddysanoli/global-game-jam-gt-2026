@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	$Others/Control/People.text = str("There are ", Global.num_people , " people alive")
-	mins = snapped(Global.countdown / 60,0)
+	mins = snapped(Global.countdown / 60.0,0)
 	sec = Global.countdown - (mins*60)
 	$Others/Control/Minutes.text = str("0", mins)
 	if sec < 10:
@@ -70,5 +70,5 @@ func _on_timer_timeout() -> void:
 	Global.countdown -= 1
 
 
-func _on_pause_menu_set_pause(bool: Variant) -> void:
+func _on_pause_menu_set_pause(_bool: Variant) -> void:
 	pause()

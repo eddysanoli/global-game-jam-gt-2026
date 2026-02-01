@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=16 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://b45vru5xs85rd" path="res://scenes/Floor1/Bkg_f1_final.png" id="2_ca35p"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="3_10rxd"]
-[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/player/player.tscn" id="3_ca35p"]
-[ext_resource type="Script" uid="uid://bpn71kxevfb2h" path="res://scenes/Floor1/button.gd" id="4_tjkhk"]
+[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/Objects/player/player.tscn" id="3_ca35p"]
 [ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_ca35p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca35p"]
@@ -226,7 +225,6 @@ theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "B"
-script = ExtResource("4_tjkhk")
 
 [node name="L1toL2" type="Button" parent="Objects/Control"]
 layout_mode = 0
@@ -238,7 +236,6 @@ theme = ExtResource("3_10rxd")
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "2"
-script = ExtResource("4_tjkhk")
 
 [node name="MainMenu" type="Button" parent="Objects/Control"]
 layout_mode = 0
@@ -261,7 +258,6 @@ theme_override_font_sizes/font_size = 40
 disabled = true
 action_mode = 0
 text = "1"
-script = ExtResource("4_tjkhk")
 
 [node name="MarcadoresAjo" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
