@@ -1,11 +1,11 @@
 extends StaticBody2D
 
+var garlic_tables = [
+	preload("res://graphics/table_1.png"),
+	preload("res://graphics/table_2.png"),
+	preload("res://graphics/table_3.png")
+	]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	
+	$Table.texture = garlic_tables.pick_random()

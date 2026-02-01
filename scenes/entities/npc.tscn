@@ -52,7 +52,7 @@ stream = ExtResource("3_n61dp")
 
 [node name="Scream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_cdmjo")
-volume_db = 1.0
+volume_db = -2.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

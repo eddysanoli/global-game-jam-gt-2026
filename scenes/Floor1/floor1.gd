@@ -39,9 +39,6 @@ var walking = [
 	preload("res://graphics/npc_1.png")
 	]
 	
-var garlic_tables = [
-	preload("res://scenes/Objects/garlic/garlic.png")
-	]
 
 var vampireId;
 var vampireNumber;
@@ -57,7 +54,7 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	Global.num_people = monigoteCount
 	vampireNumber = (randi() % monigoteCount)
-	start_Garlic(5)
+	#start_Garlic(5)
 	instantiateNpcs()
 	
 
@@ -98,16 +95,16 @@ func _process(_delta: float) -> void:
 
 
 #Set the garlic in a random place, but stays in the position during the game
-func start_Garlic(num_garlic):
-	for i in range(num_garlic):
-		var garlic = garlic_scene.instantiate() as StaticBody2D
-		var pos_marker = $MarcadoresAjo.get_children().pick_random() as Marker2D
-		#if Global.garlic_l1.is_zero_approx():
-		#	Global.garlic_l1 = pos_marker.position
-		#else:
-		#	pos_marker.position = Global.garlic_l1
-		garlic.position = pos_marker.position
-		$Objects.add_child(garlic)
+#func start_Garlic(num_garlic):
+	#for i in range(num_garlic):
+		#var garlic = garlic_scene.instantiate() as StaticBody2D
+		#var pos_marker = $MarcadoresAjo.get_children().pick_random() as Marker2D
+		##if Global.garlic_l1.is_zero_approx():
+		##	Global.garlic_l1 = pos_marker.position
+		##else:
+		##	pos_marker.position = Global.garlic_l1
+		#garlic.position = pos_marker.position
+		#$Objects.add_child(garlic)
 
 
 
@@ -176,6 +173,8 @@ func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
 	if selectedMonigote == vampireId :
 		get_tree().change_scene_to_file("res://UI/WinScreen.tscn")
 	else:
+		$"Others/Control/-10segs".showSelf()
 		$Scream.stream = grito.pick_random()
 		$Scream.play()
+		Global.countdown -= 15
 	killMenu.hide()
