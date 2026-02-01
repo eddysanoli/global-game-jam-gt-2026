@@ -38,6 +38,10 @@ var faces = [
 var walking = [
 	preload("res://graphics/npc_1.png")
 	]
+	
+var garlic_tables = [
+	preload("res://scenes/Objects/garlic/garlic.png")
+	]
 
 var vampireId;
 var vampireNumber;
