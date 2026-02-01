@@ -1,19 +1,42 @@
-[gd_scene format=3 uid="uid://bbc27r5p16d2g"]
+[gd_scene load_steps=6 format=3 uid="uid://bbc27r5p16d2g"]
 
 [ext_resource type="Script" uid="uid://bd4aqgtmjfr0t" path="res://scenes/entities/npc.gd" id="1_kdwfn"]
+[ext_resource type="Texture2D" uid="uid://bnexf8yxr1jdq" path="res://graphics/npc_mask_5.png" id="3_6jwl0"]
+[ext_resource type="AudioStream" uid="uid://bolt4cukdv57u" path="res://audio/vfx/Vampiro.wav" id="3_n61dp"]
+[ext_resource type="AudioStream" uid="uid://b74y4h5n7v8la" path="res://audio/vfx/Grito 2 (niño).wav" id="4_cdmjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7lw1"]
-radius = 20.0
+radius = 68.84496
 
-[node name="NPC" type="CharacterBody2D" unique_id=638687236]
+[node name="NPC" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(0.578, 0.578)
 collision_layer = 2
 collision_mask = 0
+input_pickable = true
 script = ExtResource("1_kdwfn")
+bite_range = 180.0
 
-[node name="CharacterCollision" type="CollisionShape2D" parent="." unique_id=6197283]
+[node name="SpriteHolder" type="Node2D" parent="."]
+z_index = -1
+
+[node name="WPerson" type="Sprite2D" parent="SpriteHolder"]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(0.06517726, 0.06517728)
+
+[node name="WMask" type="Sprite2D" parent="SpriteHolder"]
+unique_name_in_owner = true
+z_index = 1
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("3_6jwl0")
+
+[node name="CharacterCollision" type="CollisionShape2D" parent="."]
+z_index = 1
+scale = Vector2(0.578, 0.578)
 shape = SubResource("CircleShape2D_v7lw1")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=822541858]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 25.0
 target_desired_distance = 40.0
 path_max_distance = 40.0
@@ -23,4 +46,14 @@ debug_use_custom = true
 debug_path_custom_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 debug_path_custom_point_size = 9.95
 
+[node name="Chomp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n61dp")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cdmjo")
+volume_db = -2.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

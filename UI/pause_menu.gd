@@ -2,18 +2,18 @@ extends Control
 
 signal setPause(bool)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_resume_button_down() -> void:
+	$QuitPause.play()
+	Engine.time_scale = 1
+	await get_tree().create_timer(0.1).timeout
+	BgMusic.play(Global.music_time)
+	BgMusic.play(Global.music_time)
 	setPause.emit(false)
 
 func _on_main_menu_button_down() -> void:
-	get_tree().change_scene_to_file("res://UI/mainMenu.tscn")
+	var scene_tree = get_tree()
+	$QuitPause.play()
+	Engine.time_scale = 1
+	await get_tree().create_timer(0.2).timeout
+	scene_tree.change_scene_to_file("res://UI/mainMenu.tscn")

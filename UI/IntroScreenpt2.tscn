@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cfc0xr26vmgo0"]
+[gd_scene load_steps=3 format=3 uid="uid://bjwraegg4b018"]
 
 [ext_resource type="Script" uid="uid://dwf6x3hiflfjd" path="res://UI/intro_screenpt_2.gd" id="1_hb2vu"]
-[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="1_invo8"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="1_invo8"]
 
-[node name="IntroScreenpt1" type="Control" unique_id=1056357279]
+[node name="IntroScreenpt1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hb2vu")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=181883331]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,30 +22,33 @@ grow_vertical = 2
 scale = Vector2(0.9974711, 1)
 color = Color(0.1254902, 0.06666667, 0.15294118, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1591488952]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -398.0
-offset_top = -130.0
-offset_right = 388.0
-offset_bottom = 274.0
+offset_left = -393.0
+offset_top = -202.0
+offset_right = 393.0
+offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.0098987)
 theme = ExtResource("1_invo8")
 theme_override_colors/font_color = Color(1, 1, 0.36078432, 1)
+theme_override_constants/paragraph_spacing = 10
 text = "Look for clues as to who the Vampire is:
 Who avoids garlick?
 Who was close to a victim?
 Save the masquerade by clicking
-on the correct person and killing the vampire"
+on the correct person and killing the vampire.
+Do not kill the host!!"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=1832585352]
+[node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

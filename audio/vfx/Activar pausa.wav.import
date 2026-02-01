@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://co5fu25ich746"
+path="res://.godot/imported/Activar pausa.wav-b6bdae4424f57bf993938bdb0c1cebe5.sample"
+
+[deps]
+
+source_file="res://audio/vfx/Activar pausa.wav"
+dest_files=["res://.godot/imported/Activar pausa.wav-b6bdae4424f57bf993938bdb0c1cebe5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

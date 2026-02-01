@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wpex7fpxx06k"
+path="res://.godot/imported/Poner Pausa en wav.wav-d7813b5605dacd1c91b7729b3de2ca0b.sample"
+
+[deps]
+
+source_file="res://audio/vfx/Poner Pausa en wav.wav"
+dest_files=["res://.godot/imported/Poner Pausa en wav.wav-d7813b5605dacd1c91b7729b3de2ca0b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

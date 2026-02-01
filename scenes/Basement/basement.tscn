@@ -1,0 +1,258 @@
+[gd_scene load_steps=13 format=3 uid="uid://cyqo0j8p136bo"]
+
+[ext_resource type="Script" uid="uid://udvqjbn76aru" path="res://scenes/Basement/basement.gd" id="1_fv2i8"]
+[ext_resource type="Texture2D" uid="uid://281gdjupmrde" path="res://scenes/Basement/bg.png" id="1_huuf7"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="3_7q75m"]
+[ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/Objects/player/player.tscn" id="3_fv2i8"]
+[ext_resource type="AudioStream" uid="uid://wpex7fpxx06k" path="res://audio/vfx/Poner Pausa en wav.wav" id="4_ii6jw"]
+[ext_resource type="AudioStream" uid="uid://bygd7tugac7pf" path="res://audio/vfx/Clickear.wav" id="5_ii6jw"]
+[ext_resource type="AudioStream" uid="uid://ctc8ce5myaigh" path="res://audio/vfx/Quitar pausa en wav.wav" id="5_yccs3"]
+[ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_4ss7x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ss7x"]
+shadow_color = Color(0, 0, 0, 0.4509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q75m"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0ua12"]
+a = Vector2(-474, -298)
+b = Vector2(-474, 296)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_x50av"]
+a = Vector2(-475, 296)
+b = Vector2(475, 296)
+
+[node name="Basement" type="Node2D"]
+script = ExtResource("1_fv2i8")
+
+[node name="Others" type="Node" parent="."]
+
+[node name="Bg" type="Sprite2D" parent="Others"]
+z_index = -1
+texture = ExtResource("1_huuf7")
+
+[node name="Camera2D" type="Camera2D" parent="Others"]
+
+[node name="Control" type="Control" parent="Others"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1077.0
+offset_top = -719.0
+offset_right = -3.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Others/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.5
+offset_top = 2.0
+offset_right = 107.5
+offset_bottom = 60.0
+grow_horizontal = 2
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 42
+text = "Basement"
+
+[node name="People" type="Label" parent="Others/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -223.5
+offset_top = -60.0
+offset_right = 223.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ss7x")
+text = "There are 20 people alive"
+
+[node name="Minutes" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 75.0
+offset_right = 52.0
+offset_bottom = 130.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_7q75m")
+text = "20"
+
+[node name="Seconds" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 151.0
+offset_right = 52.0
+offset_bottom = 206.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_7q75m")
+text = "59"
+
+[node name="SecLabel" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 210.0
+offset_right = 54.0
+offset_bottom = 229.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 14
+text = "Seconds"
+
+[node name="MinLabel" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 133.0
+offset_right = 55.0
+offset_bottom = 152.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 14
+text = "Minutes"
+
+[node name="FloorLabel" type="Label" parent="Others/Control"]
+layout_mode = 0
+offset_left = 1020.0
+offset_top = 379.0
+offset_right = 1069.0
+offset_bottom = 407.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 21
+text = "Floor"
+
+[node name="Timer" type="Timer" parent="Others"]
+autostart = true
+
+[node name="EnterPause" type="AudioStreamPlayer2D" parent="Others"]
+stream = ExtResource("4_ii6jw")
+
+[node name="QuitPause" type="AudioStreamPlayer2D" parent="Others"]
+stream = ExtResource("5_yccs3")
+
+[node name="ButtonSound" type="AudioStreamPlayer2D" parent="Others"]
+stream = ExtResource("5_ii6jw")
+volume_db = 12.37
+
+[node name="Walls" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+shape = SubResource("SegmentShape2D_0ua12")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(950, 2)
+shape = SubResource("SegmentShape2D_0ua12")
+
+[node name="DownWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/DownWall"]
+shape = SubResource("SegmentShape2D_x50av")
+metadata/_edit_lock_ = true
+
+[node name="UpWall" type="StaticBody2D" parent="Walls"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/UpWall"]
+position = Vector2(-1, -594)
+shape = SubResource("SegmentShape2D_x50av")
+
+[node name="Objects" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Player" parent="Objects" instance=ExtResource("3_fv2i8")]
+z_index = 1
+
+[node name="BtoL1" type="Button" parent="Objects"]
+offset_left = 488.0
+offset_top = 136.0
+offset_right = 529.0
+offset_bottom = 199.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "1"
+
+[node name="BtoL2" type="Button" parent="Objects"]
+offset_left = 488.0
+offset_top = 56.0
+offset_right = 529.0
+offset_bottom = 119.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "2"
+
+[node name="MainMenu" type="Button" parent="Objects"]
+offset_left = -468.0
+offset_top = -350.0
+offset_right = -301.0
+offset_bottom = -307.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 25
+text = "Main Menu"
+
+[node name="L1toB" type="Button" parent="Objects"]
+offset_left = 488.0
+offset_top = 216.0
+offset_right = 529.0
+offset_bottom = 279.0
+theme = ExtResource("3_7q75m")
+theme_override_font_sizes/font_size = 40
+disabled = true
+action_mode = 0
+text = "B"
+
+[node name="MarcadoresAjo" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-452, -272)
+
+[node name="Marker2D6" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(212, 140)
+
+[node name="Marker2D7" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-89, 162)
+
+[node name="Marker2D8" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(377, -208)
+
+[node name="Marker2D2" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-196, -98)
+
+[node name="Marker2D3" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(151, -110)
+
+[node name="Marker2D4" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(-381, 225)
+
+[node name="Marker2D5" type="Marker2D" parent="MarcadoresAjo"]
+position = Vector2(464, 19)
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_4ss7x")]
+visible = false
+
+[connection signal="timeout" from="Others/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Objects/BtoL1" to="." method="_on_bto_l_1_pressed"]
+[connection signal="pressed" from="Objects/BtoL2" to="." method="_on_bto_l_2_pressed"]
+[connection signal="pressed" from="Objects/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="setPause" from="PauseMenu" to="." method="_on_pause_menu_set_pause"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpl7r52kpp6w0"]
+
+[ext_resource type="AudioStream" uid="uid://bhjgenj5febcu" path="res://audio/music/Vals principal.wav" id="1_3xtrr"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_3xtrr")
+autoplay = true

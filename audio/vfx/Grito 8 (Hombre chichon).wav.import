@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://23tf68m0pdbw"
+path="res://.godot/imported/Grito 8 (Hombre chichon).wav-3cf5b78687394c283275a0a9e665fb97.sample"
+
+[deps]
+
+source_file="res://audio/vfx/Grito 8 (Hombre chichon).wav"
+dest_files=["res://.godot/imported/Grito 8 (Hombre chichon).wav-3cf5b78687394c283275a0a9e665fb97.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

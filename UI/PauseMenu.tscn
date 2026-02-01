@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://c7jxp0ig31ge"]
+[gd_scene load_steps=4 format=3 uid="uid://dh38kwu0ugohg"]
 
-[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="1_05bun"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="1_05bun"]
 [ext_resource type="Script" uid="uid://fk70d6q2xkqs" path="res://UI/pause_menu.gd" id="1_tsvmi"]
+[ext_resource type="AudioStream" uid="uid://bygd7tugac7pf" path="res://audio/vfx/Clickear.wav" id="3_73kip"]
 
-[node name="PauseMenu" type="Control" unique_id=127774544]
+[node name="PauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tsvmi")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1174891693]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
+custom_minimum_size = Vector2(1080, 720)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,8 +23,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5176471)
+metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1027053707]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,17 +40,20 @@ offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" type="Button" parent="VBoxContainer" unique_id=787571911]
+[node name="Resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_05bun")
 text = "RESUME"
 
-[node name="MainMenu" type="Button" parent="VBoxContainer" unique_id=1850261792]
+[node name="MainMenu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_05bun")
 text = "RETURN TO 
 MAIN MENU
 "
+
+[node name="QuitPause" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_73kip")
 
 [connection signal="button_down" from="VBoxContainer/Resume" to="." method="_on_resume_button_down"]
 [connection signal="button_down" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_button_down"]

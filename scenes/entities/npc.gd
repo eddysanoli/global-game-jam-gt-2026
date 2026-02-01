@@ -1,9 +1,22 @@
-extends CharacterBody2D
+class_name NPC extends CharacterBody2D
+
+signal monigoteClicked(node)
+
+var grito = [
+		preload("res://audio/vfx/Grito 3 (Dama).wav"),
+		preload("res://audio/vfx/Grito 6 (Suena a Toad).wav"),
+		preload("res://audio/vfx/Grito 7 (Señor).wav"),
+		preload("res://audio/vfx/Grito 8 (Hombre chichon).wav")
+	]
+
 
 # ─────────────────────────────────────────────
 # Object Properties
 @export var speed_min: float = 50
 @export var speed_max: float = 80
+
+@onready var sprite_holder: Node2D = $SpriteHolder
+@onready var sprite_2d: Sprite2D = $SpriteHolder/WPerson
 
 # Repetition Protection
 @export var memory_size: int = 5
@@ -32,8 +45,9 @@ var standing := false
 var justMoved := false
 
 # ───── Vampire / Bleeding──────────────────────
+@export var is_special := false
 @export var is_vampire := false
-@export var bite_chance := 1 
+@export var bite_chance := 0.9 
 @export var bite_range := 120.0
 @export var bite_distance := 80.0
 @export var bite_cooldown_time := 5.0
@@ -91,6 +105,8 @@ func late_init():
 
 
 func setup():
+	if is_vampire:
+		nav2d.avoidance_mask |= 2  # enable mask 2 (bit 1) 
 	speed = randf_range(speed_min, speed_max)
 	pickRandomPoint(global_position)
 
@@ -126,8 +142,6 @@ func _physics_process(delta):
 	navigate_safe()
 	check_stuck(delta)
 
-
-
 # ─────────────────────────────────────────────
 func navigate_safe():
 	if not has_active_target:
@@ -149,6 +163,7 @@ func navigate_safe():
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
+	sprite_holder.rotation = lerp_angle(sprite_holder.rotation, velocity.angle(), 0.1)
 	move_and_slide()
 
 
@@ -241,7 +256,6 @@ func try_start_bite() -> bool:
 			continue
 		if global_position.distance_to(npc.global_position) <= bite_range:
 			candidates.append(npc)
-	print(candidates)
 	if candidates.is_empty():
 		return false
 	bite_target = candidates.pick_random()
@@ -270,8 +284,8 @@ func execute_bite():
 	has_active_target = false
 	nav2d.velocity = Vector2.ZERO
 	print("CHOMP")
+	$Chomp.play()
 	bite_target.start_bleeding()
-
 	bite_target = null
 	justMoved = true
 	move_cooldown = 3.0
@@ -280,6 +294,9 @@ func execute_bite():
 # ─────────────────────────────────────────────
 # VICTIM STARTS BLEEDING
 func start_bleeding():
+	var tween = get_tree().create_tween()
+	tween.tween_property(%WPerson, "modulate", Color.RED, 0.8)
+	
 	if is_bleeding:
 		return
 
@@ -327,8 +344,21 @@ func interact_with_stairs():
 # ─────────────────────────────────────────────
 # Fading after death
 func fading():
-	pass
+	$Scream.stream = grito.pick_random()
+	$Scream.play()
+	Global.num_people -= 1
+	z_index = 0
+	$%WPerson.texture = preload("res://graphics/npc_death_1.png")
+	$%WMask.texture = null
+	await get_tree().create_timer(10).timeout
+	var tween = create_tween()
+	tween.set_parallel(false)
+	tween.tween_property(self, "modulate:a", 0.0, 5)
+	await tween.finished
+	if self.is_special:
+		get_tree().change_scene_to_file("res://UI/FailMenu.tscn")
 	queue_free()
+	
 
 # ─────────────────────────────────────────────
 func check_stuck(delta):
@@ -343,3 +373,19 @@ func check_stuck(delta):
 		pickRandomPoint(global_position)
 
 	last_position = global_position
+	
+## -------------------------------------------------
+#func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+#	if event.is_action_pressed("click"):
+#		monigoteClicked.emit(self)
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("click"):
+		monigoteClicked.emit(self)
+
+
+##---------------------------------------------------
+func texture_person(id_person, id_mask):
+	%WPerson.texture = id_person
+	%WMask.texture = id_mask
