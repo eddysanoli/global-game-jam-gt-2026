@@ -18,3 +18,4 @@ shape = SubResource("CircleShape2D_sc6fy")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 radius = 70.0
+avoidance_layers = 2

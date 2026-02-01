@@ -103,6 +103,8 @@ func late_init():
 
 
 func setup():
+	if is_vampire:
+		nav2d.avoidance_mask |= 2  # enable mask 2 (bit 1) 
 	speed = randf_range(speed_min, speed_max)
 	pickRandomPoint(global_position)
 
