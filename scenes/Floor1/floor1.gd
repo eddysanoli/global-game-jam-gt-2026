@@ -43,7 +43,7 @@ var vampireId;
 var vampireNumber;
 var rng = RandomNumberGenerator.new()
 @export var monigoteScn: PackedScene = preload("res://UI/Tests/Monigote.tscn");
-@export var monigoteCount: int = 50;
+@export var monigoteCount: int = 2;
 @export var spawnLimitsY = 720
 @export var spawnLimitsX = 1080
 
@@ -172,7 +172,7 @@ func _on_kill_view_kill_monigote(selectedMonigote: Variant) -> void:
 	Global.num_people -= 1
 	selectedMonigote.queue_free()
 	if selectedMonigote == vampireId :
-		print('yaaaaayyy')
+		get_tree().change_scene_to_file("res://UI/WinScreen.tscn")
 	else:
 		$Scream.stream = grito.pick_random()
 		$Scream.play()

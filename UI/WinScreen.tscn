@@ -1,20 +1,22 @@
-[gd_scene format=3 uid="uid://dwesu388f2n4l"]
+[gd_scene load_steps=5 format=3 uid="uid://dpuenc2ae8ohy"]
 
-[ext_resource type="Texture2D" uid="uid://dmsr0dq4oeku0" path="res://graphics/mask_1.png" id="1_46rli"]
-[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="2_xcbig"]
+[ext_resource type="Texture2D" uid="uid://b3lsufsmu18m7" path="res://graphics/mask_1.png" id="1_46rli"]
+[ext_resource type="Script" uid="uid://n1f24owdb3uk" path="res://UI/win_screen.gd" id="1_xcbig"]
+[ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://fonts/UITheme.tres" id="2_xcbig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmf7b"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="WinScreen" type="Control" unique_id=1752608040]
+[node name="WinScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xcbig")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1739677298]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,11 +25,11 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.105882354, 0.11764706, 0.20392157, 1)
 
-[node name="Mask1" type="Sprite2D" parent="." unique_id=324035737]
+[node name="Mask1" type="Sprite2D" parent="."]
 position = Vector2(567, 614)
 texture = ExtResource("1_46rli")
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=840295208]
+[node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1764706, 0.1764706, 0.1764706, 0.4627451)
 
-[node name="Label" type="Label" parent="." unique_id=933674140]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -53,7 +55,7 @@ theme_override_font_sizes/font_size = 85
 theme_override_styles/normal = SubResource("StyleBoxFlat_wmf7b")
 text = "You saved the Night"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1482728301]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,9 +69,11 @@ offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1286773338]
+[node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_xcbig")
 theme_override_colors/font_color = Color(0.9254902, 0.6039216, 0.42745098, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.7607843, 0.47843137, 1)
 text = "RETURN TO MAIN MENU"
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

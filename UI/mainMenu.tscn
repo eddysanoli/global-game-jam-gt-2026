@@ -76,12 +76,13 @@ theme_override_font_sizes/font_size = 150
 text = "START
 "
 
-[node name="creditsBtn" type="Button" parent="TextureRect/VBoxContainer" unique_id=1837671125]
+[node name="creditsBtn" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_em8oq")
+theme_override_font_sizes/font_size = 150
 text = "CREDITS"
 
-[node name="exitBtn" type="Button" parent="TextureRect/VBoxContainer" unique_id=385706037]
+[node name="exitBtn" type="Button" parent="TextureRect/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_em8oq")
@@ -116,3 +117,6 @@ position = Vector2(541, 360)
 [node name="ButtonSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_5iw7r")
 volume_db = 12.37
+
+[connection signal="button_down" from="TextureRect/VBoxContainer/startBtn" to="." method="_on_start_btn_button_down"]
+[connection signal="button_down" from="TextureRect/VBoxContainer/creditsBtn" to="." method="_on_credits_btn_button_down"]

@@ -7,3 +7,4 @@ var num_people: int = 20
 var countdown: int = 300
 var music_time: float
 var person: Dictionary
+var menu: bool = false
