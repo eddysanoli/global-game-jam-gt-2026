@@ -8,7 +8,7 @@ signal Cancel
 
 
 func setKillerName(monigote: Node2D) -> void:
-	killerName.text = monigote.name;
+	killerName.text = " vampire?\n Is this a";
 	selectedMonigote = monigote
 	print(monigote)
 
