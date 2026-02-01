@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdnrr1ksm5xp5"]
+[gd_scene load_steps=18 format=3 uid="uid://cdnrr1ksm5xp5"]
 
 [ext_resource type="Script" uid="uid://cat4ftn4k8pap" path="res://scenes/Floor1/floor1.gd" id="1_tjkhk"]
 [ext_resource type="Texture2D" uid="uid://b45vru5xs85rd" path="res://scenes/Floor1/Bkg_f1_final.png" id="2_ca35p"]
 [ext_resource type="Theme" uid="uid://djroh1jot6ik5" path="res://UI/UITheme.tres" id="3_10rxd"]
 [ext_resource type="PackedScene" uid="uid://dkixfmdf7tn0s" path="res://scenes/Objects/player/player.tscn" id="3_ca35p"]
+[ext_resource type="AudioStream" uid="uid://pdhlc4c8dg73" path="res://audio/vfx/Vampiro kill.wav" id="4_uq5t8"]
+[ext_resource type="AudioStream" uid="uid://bygd7tugac7pf" path="res://audio/vfx/Clickear.wav" id="5_mgwap"]
 [ext_resource type="PackedScene" uid="uid://dh38kwu0ugohg" path="res://UI/PauseMenu.tscn" id="6_ca35p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca35p"]
@@ -173,6 +175,12 @@ text = "Minutes"
 
 [node name="Timer" type="Timer" parent="Others"]
 autostart = true
+
+[node name="EnterPause" type="AudioStreamPlayer2D" parent="Others"]
+stream = ExtResource("4_uq5t8")
+
+[node name="QuitPause" type="AudioStreamPlayer2D" parent="Others"]
+stream = ExtResource("5_mgwap")
 
 [node name="Walls" type="Node2D" parent="."]
 
