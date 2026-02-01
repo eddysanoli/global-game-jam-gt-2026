@@ -46,7 +46,7 @@ func instantiateNpcs() -> void:
 		if i == vampireNumber:
 			vampireId = monigote
 			monigote.is_vampire = true
-		monigote.position = Vector2(randf_range(0, spawnLimitsX), randf_range(0, spawnLimitsY))
+		monigote.position = Vector2(randf_range(-540+60, 540-60), randf_range(-360+60,360-60))
 		monigote.monigoteClicked.connect(_on_npc_clicked)
 		add_child(monigote)
 
