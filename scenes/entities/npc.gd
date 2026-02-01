@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 # ─────────────────────────────────────────────
 # Object Properties
-@export var speed_min: float = 30
-@export var speed_max: float = 50
+@export var speed_min: float = 50
+@export var speed_max: float = 80
 
 # Repetition Protection
 @export var memory_size: int = 5
@@ -33,15 +33,19 @@ var justMoved := false
 
 # ───── Vampire / Bleeding──────────────────────
 @export var is_vampire := false
-@export var bite_chance := 0.02 
+@export var bite_chance := 1 
 @export var bite_range := 120.0
-@export var bite_distance := 24.0
+@export var bite_distance := 80.0
 @export var bite_cooldown_time := 5.0
+@export var death_time := 10.0
 
 var is_bleeding := false
 var bite_target: Node2D = null
 var going_to_bite := false
 var bite_cooldown := 0.0
+
+var bleed_timer := 0.0
+var is_dead = false
 
 # ─────────────────────────────────────────────
 # Navigation
@@ -64,6 +68,7 @@ var active_stairs: Node2D = null
 
 # ─────────────────────────────────────────────
 func _ready() -> void:
+	add_to_group("npc")
 	set_physics_process(false)
 	call_deferred("late_init")
 
@@ -98,6 +103,9 @@ func _physics_process(delta):
 		return
 	if bite_cooldown > 0.0:
 		bite_cooldown -= delta
+	#Death Override
+	if bleed_timer > 0.0:
+		bleed_timer -= delta
 	# Stairs override
 	if going_to_stairs:
 		navigate_safe()
@@ -188,8 +196,17 @@ func behaviour():
 			if try_start_bite():
 				return
 	var random_action = action.pick_random()
-
-	if actions.size() > 0:
+	
+	if bleed_timer <= 0.0 and is_bleeding == true:
+		is_dead = true
+		nav2d.avoidance_mask = 0
+		nav2d.avoidance_enabled = false
+		is_bleeding = false
+	if is_dead == true:
+		random_action = "stand"
+		actions.pop_front()
+		fading()
+	if actions.size() > 0 and is_dead == false:
 		if actions.back() == "climbStairs":
 			random_action = "walk"
 		for element in actions:
@@ -224,10 +241,9 @@ func try_start_bite() -> bool:
 			continue
 		if global_position.distance_to(npc.global_position) <= bite_range:
 			candidates.append(npc)
-
+	print(candidates)
 	if candidates.is_empty():
 		return false
-
 	bite_target = candidates.pick_random()
 	going_to_bite = true
 	has_active_target = true
@@ -253,12 +269,13 @@ func execute_bite():
 	going_to_bite = false
 	has_active_target = false
 	nav2d.velocity = Vector2.ZERO
-
+	print("CHOMP")
 	bite_target.start_bleeding()
 
 	bite_target = null
 	justMoved = true
 	move_cooldown = 3.0
+	bite_cooldown = bite_cooldown_time
 
 # ─────────────────────────────────────────────
 # VICTIM STARTS BLEEDING
@@ -267,9 +284,7 @@ func start_bleeding():
 		return
 
 	is_bleeding = true
-	print(name, " is bleeding!")
-
-
+	bleed_timer = death_time
 
 # ─────────────────────────────────────────────
 # STAIRS NAVIGATION (NOT IMPLEMENTED YET)
@@ -309,6 +324,11 @@ func interact_with_stairs():
 	# Example scene change
 	get_tree().change_scene_to_packed(active_stairs.target_scene)
 
+# ─────────────────────────────────────────────
+# Fading after death
+func fading():
+	pass
+	queue_free()
 
 # ─────────────────────────────────────────────
 func check_stuck(delta):
