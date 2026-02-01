@@ -36,7 +36,15 @@ var faces = [
 	]
 	
 var walking = [
-	preload("res://graphics/npc_1.png")
+	preload("res://graphics/npc_1.png"),
+	preload("res://graphics/npc_2.png"),
+	preload("res://graphics/npc_3.png"),
+	preload("res://graphics/npc_4.png"),
+	preload("res://graphics/npc_5.png"),
+	preload("res://graphics/npc_6.png"),
+	preload("res://graphics/npc_7.png"),
+	preload("res://graphics/npc_8.png"),
+	preload("res://graphics/npc_9.png"),
 	]
 	
 
