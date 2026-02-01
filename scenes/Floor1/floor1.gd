@@ -69,10 +69,10 @@ func setRandomNumber() -> int:
 func instantiateNpcs() -> void: 
 	for i in range(monigoteCount):
 		var monigote = npcScn.instantiate() as NPC
-		var pep = randi() % faces.size()
+		var pep = randi() % walking.size()
 		var mek = randi() % mask.size()
 		Global.person[monigote.get_instance_id()] = {"mask_image":mask[mek], 
-			"person_image":faces[pep],
+			"person_image":faces[0],
 			"walking_person":walking[pep],
 			"walking_mask":mask_npc[mek]
 			}
